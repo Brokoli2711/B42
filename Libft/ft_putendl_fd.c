@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 13:04:45 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/02 13:28:41 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/04 23:46:45 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	char	null_byte;
-
-	null_byte = '\0';
 	while (*s)
 	{
 		write(fd, s, 1);
 		s++;
 	}
-	write(fd, &null_byte, 1);
+	write(fd, "\n", 1);
 }

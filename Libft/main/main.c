@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:15:15 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/04 16:28:28 by elfo             ###   ########.fr       */
+/*   Updated: 2025/01/04 23:11:47 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,11 @@ static void	p_memcmp(void)
 
 static void	p_strnstr(void)
 {
-	char	src[] = PATATA;
-	char	str[] = "tat";
+	char	src[] = "hohola";
+	char	str[] = "hola";
 
-	printf("The string '%s' in the src '%s' is in position: '%p'\n", str, src, ft_strnstr(src, str, 2));
+	printf("%p", src + 2);
+	printf("The string '%s' in the src '%s' is in position: '%p'\n", str, src, ft_strnstr(src, str, ft_strlen(src)));
 }
 
 static void	p_calloc(void)
