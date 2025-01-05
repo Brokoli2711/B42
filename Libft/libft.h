@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:43:57 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/04 23:38:58 by elfo             ###   ########.fr       */
+/*   Updated: 2025/01/05 15:17:39 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdint.h>
+
+typedef struct	s_list
+{
+	void	*content;
+	struct s_list	*next;
+}					t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -42,7 +48,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(void	*str, int c, size_t n);
 void	*ft_calloc(size_t nmb, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);
-size_t	ft_strlcat(char	*dest, const char *src, size_t n);
+ize_t	ft_strlcat(char	*dest, const char *src, size_t n);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(const char *src, const char	*str, size_t n);
@@ -53,4 +59,5 @@ char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_itoa(int n);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	**ft_split(const char *s, char c);
+t_list	*ft_lstnew(void *content);
 #endif

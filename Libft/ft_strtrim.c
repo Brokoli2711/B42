@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:41:23 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/02 13:34:47 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/05 01:23:34 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ char	*ft_strtrim(const char *s1, const char *set)
 		start++;
 	while (end > start && is_in_set(s1[end - 1], set))
 		end--;
-	ptr = (char *)malloc(end - start);
+	ptr = (char *)malloc(end - start + 1);
 	if (!ptr)
 		return (NULL);
-	ft_strlcpy(ptr, &s1[start], (end - start));
+	ft_strlcpy(ptr, &s1[start], (end - start + 1));
 	return (ptr);
 }

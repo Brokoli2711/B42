@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 11:38:22 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/02 13:25:16 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/05 01:16:00 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static size_t	count_size(int n)
 		count++;
 		n *= -1;
 	}
+	if (n == 0)
+		count++;
 	while (n > 0)
 	{
 		n = n / 10;
@@ -42,6 +44,8 @@ char	*ft_itoa(int n)
 	char	*ptr;
 	size_t	size;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	size = count_size(n);
 	ptr = (char *)malloc(size * sizeof(char) + 1);
 	ptr[size] = '\0';
