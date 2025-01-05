@@ -6,7 +6,7 @@
 #    By: elfo <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 11:40:01 by elfo              #+#    #+#              #
-#    Updated: 2025/01/05 16:13:15 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/01/05 21:35:27 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,10 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 		ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c \
 		ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
 		ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
-SRC_BONUS = ft_lstnew.c
+SRC_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c
 OBJECTS = $(SRC:.c=.o)
-OBJECT_BONUS = $(SRC_BONUS:.c=.o)
+OBJECTS_BONUS = $(SRC_BONUS:.c=.o)
 HEADER = .
 
 all: $(NAME)
@@ -37,7 +38,7 @@ bonus: Makefile
 	ranlib $(NAME)
 clean :
 	rm -rf $(OBJECTS)
-	rm -rf $(OBJECT_BONUS)
+	rm -rf $(OBJECTS_BONUS)
 
 fclean : clean
 	rm -rf $(NAME)

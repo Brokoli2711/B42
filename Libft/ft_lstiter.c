@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:06:01 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/05 16:09:00 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/05 21:33:53 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		return ;
 	while (lst)
 	{
-		(*f)(lst.content);
-		lst = lst.next;
+		(*f)(lst->content);
+		lst = lst->next;
 	}
 }
