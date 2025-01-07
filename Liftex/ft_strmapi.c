@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 13:10:03 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 12:10:52 by egelma-b         ###   ########.fr       */
+/*   Created: 2025/01/02 12:15:26 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/02 13:33:42 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	if (n == INT_MIN)
-		ft_putstr_fd("-2147483648", fd);
-	else
+	char	*ptr;
+	int		i;
+
+	ptr = (char *)malloc(ft_strlen((char *)s) + 1);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (n < 0)
-		{
-			ft_putchar_fd('-', fd);
-			n *= -1;
-		}
-		if (n > 9)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
+		ptr[i] = f(i, s[i]);
+		i++;
 	}
+	ptr[i] = '\0';
+	return (ptr);
 }
-
-/*int	main()
-{
-	int	i;
-	int	fd;
-
-	fd = 1;
-	i = -1237236;
-	ft_putnbr_fd(i, fd);
-	return (0);
-}*/

@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 11:38:22 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 11:40:26 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/05 01:16:00 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ char	*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	size = count_size(n);
 	ptr = (char *)malloc(size * sizeof(char) + 1);
-	if (!ptr)
-		return (NULL);
 	ptr[size] = '\0';
 	if (check_if_symbols(n) == 1)
 	{

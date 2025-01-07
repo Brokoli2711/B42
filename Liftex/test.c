@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 10:32:47 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 11:57:12 by egelma-b         ###   ########.fr       */
+/*   Created: 2025/01/06 15:37:28 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/06 15:37:29 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strchr(const char *str, int c)
+int	main(void)
 {
-	while (*str != '\0')
-	{
-		if (*str == (char)c)
-			return ((char *)str);
-		str++;
-	}
-	if ((char)c == '\0')
-		return ((char *)str);
-	return (NULL);
+	char *s;
+
+	s = malloc(sizeof(char) * 100);	
+	return (0);
 }

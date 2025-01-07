@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:25:27 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 11:46:02 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/02 13:27:51 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char	*lastd;
 	unsigned char	*lasts;
 
-	if (!dest && !src)
-		return (NULL);
 	d = (unsigned char *) dest;
 	s = (unsigned char *) src;
 	if (d < s)

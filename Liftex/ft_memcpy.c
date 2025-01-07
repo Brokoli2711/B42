@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 13:10:03 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 12:10:52 by egelma-b         ###   ########.fr       */
+/*   Created: 2024/12/27 13:30:52 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/02 13:27:30 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (n == INT_MIN)
-		ft_putstr_fd("-2147483648", fd);
-	else
+	unsigned char	*d;
+	unsigned char	*s;
+	unsigned long	i;
+
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	i = 0;
+	while (i < n)
 	{
-		if (n < 0)
-		{
-			ft_putchar_fd('-', fd);
-			n *= -1;
-		}
-		if (n > 9)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
+		d[i] = s[i];
+		i++;
 	}
+	return (dest);
 }
-
-/*int	main()
+/*int	main(void)
 {
-	int	i;
-	int	fd;
+	char	str1[] = "Hola";
+	char	str2[] = "NAU";
 
-	fd = 1;
-	i = -1237236;
-	ft_putnbr_fd(i, fd);
+	//printf("%s", str1);
+	ft_memcpy(str1, str2, strlen(str2) + 1);
+	printf("%s", str1);
 	return (0);
 }*/

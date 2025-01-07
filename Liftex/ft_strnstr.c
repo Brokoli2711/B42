@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 13:10:03 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 12:10:52 by egelma-b         ###   ########.fr       */
+/*   Created: 2025/01/02 10:39:24 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/04 23:26:06 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strnstr(const char *src, const char *str, size_t n)
 {
-	if (n == INT_MIN)
-		ft_putstr_fd("-2147483648", fd);
-	else
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	if (str[i] == '\0')
+		return ((char *)src);
+	while (src[i] != '\0' && i < n)
 	{
-		if (n < 0)
+		j = 0;
+		while ((src[i + j] == str[j]) && (i + j) < n)
 		{
-			ft_putchar_fd('-', fd);
-			n *= -1;
+			if (str[j + 1] == '\0')
+				return ((char *)&src[i]);
+			j++;
 		}
-		if (n > 9)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
+		i++;
 	}
+	return (NULL);
 }
-
-/*int	main()
-{
-	int	i;
-	int	fd;
-
-	fd = 1;
-	i = -1237236;
-	ft_putnbr_fd(i, fd);
-	return (0);
-}*/

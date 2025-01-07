@@ -6,13 +6,13 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:29:24 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/05 21:49:42 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/06 11:23:47 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int		size;
 

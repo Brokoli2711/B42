@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bmain.c                                            :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 11:38:54 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/05 11:46:45 by egelma-b         ###   ########.fr       */
+/*   Created: 2025/01/02 13:04:45 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/04 23:46:45 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-static void p_lstnew(void)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_list	*list;
-
-	list = ft_lstnew((void *)42);
-	printf("%p", list[0].content);
-}
-
-int	main(void)
-{
-	p_lstnew();
-	return (0);
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
+	write(fd, "\n", 1);
 }

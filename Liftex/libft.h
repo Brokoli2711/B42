@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:43:57 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 11:52:30 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/06 10:31:58 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
-# include <limits.h>
 # include <stdint.h>
 
-typedef struct s_list
+typedef struct	s_list
 {
 	void			*content;
 	struct s_list	*next;

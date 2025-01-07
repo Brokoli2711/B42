@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 13:10:03 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 12:10:52 by egelma-b         ###   ########.fr       */
+/*   Created: 2025/01/02 10:18:16 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/02 13:23:44 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_atoi(const char *str)
 {
-	if (n == INT_MIN)
-		ft_putstr_fd("-2147483648", fd);
-	else
+	unsigned int	num;
+	int				i;
+	int				np;
+
+	np = 1;
+	i = 0;
+	num = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\f'
+		|| str[i] == '\r' || str[i] == '\n' || str[i] == '\v')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			np = -1;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (n < 0)
-		{
-			ft_putchar_fd('-', fd);
-			n *= -1;
-		}
-		if (n > 9)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
+		num = num * 10 + (str[i] - '0');
+		i++;
 	}
+	return ((int)(np * num));
 }
-
-/*int	main()
-{
-	int	i;
-	int	fd;
-
-	fd = 1;
-	i = -1237236;
-	ft_putnbr_fd(i, fd);
-	return (0);
-}*/

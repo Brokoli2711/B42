@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:18:16 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/02 13:23:44 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:41:25 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,12 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)(np * num));
 }
+
+/*int	main()
+{
+	char	*str;
+
+	str =  "-23456";
+	printf("%i\n", ft_atoi(str));
+	return (0);
+}*/

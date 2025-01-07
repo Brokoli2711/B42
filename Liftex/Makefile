@@ -6,15 +6,11 @@
 #    By: elfo <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 11:40:01 by elfo              #+#    #+#              #
-#    Updated: 2025/01/06 12:48:25 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/01/06 15:32:02 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar -rv
-RM = rm -rf
 SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 		ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 		ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
@@ -33,21 +29,19 @@ HEADER = .
 all: $(NAME)
 
 $(NAME): Makefile
-	$(CC) $(CFLAGS) -c $(SRC) -I $(HEADER) 
-	$(AR) $(NAME) $(OBJECTS)
+	cc -Wall -Wextra -Werror -c $(SRC) -I $(HEADER)
+	ar -rv $(NAME) $(OBJECTS)
 	ranlib $(NAME)
 
 bonus: Makefile
-	$(CC) $(CFLAGS) -c $(SRC_BONUS) $(SRC) -I $(HEADER)
-	$(AR) $(NAME) $(OBJECTS_BONUS) $(OBJECTS)
+	cc -Wall -Wextra -Werror -c $(SRC_BONUS) $(SRC) -I $(HEADER)
+	ar -rv $(NAME) $(OBJECTS_BONUS) $(OBJECTS)
 	ranlib $(NAME)
 clean :
-	$(RM) $(OBJECTS)
-	$(RM) $(OBJECTS_BONUS)
+	rm -rf $(OBJECTS)
+	rm -rf $(OBJECTS_BONUS)
 
 fclean : clean
-	$(RM) $(NAME)
-
-.PHONY: all bonus clean fclean re
+	rm -rf $(NAME)
 
 re: fclean all
