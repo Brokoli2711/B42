@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:28:14 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/04 23:52:55 by elfo             ###   ########.fr       */
+/*   Updated: 2025/01/07 17:50:01 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,13 @@ char	*ft_strdup(const char *str)
 	ptr[i] = '\0';
 	return (ptr);
 }
+
+/*int	main()
+{
+	const char	*str = "Hola como estamos";
+	char	*strdup = ft_strdup(str);
+
+	printf("%s\n", strdup);
+	free(strdup);
+	return (0);
+}*/

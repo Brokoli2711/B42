@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 11:38:22 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 11:40:26 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:39:06 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,14 @@ char	*ft_itoa(int n)
 	}
 	return (ptr);
 }
+
+/*int	main()
+{
+	int	n;
+	char	*str;
+
+	n = 16793;
+	str = ft_itoa(n);
+	printf("%s\n", str);
+	return (0);
+}*/

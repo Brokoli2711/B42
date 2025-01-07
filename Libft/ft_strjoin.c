@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:28:47 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/05 01:17:27 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:53:02 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,14 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	ptr[i + j] = '\0';
 	return (ptr);
 }
+
+/*int	main()
+{
+	const char	*s1 = "hola co";
+	const char	*s2 = "mo estamos";
+	char	*join = ft_strjoin(s1, s2);
+
+	printf("%s\n", join);
+	free(join);
+	return (0);
+}*/

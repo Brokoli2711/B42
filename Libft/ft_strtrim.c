@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:41:23 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/05 01:23:34 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/07 18:12:18 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,14 @@ char	*ft_strtrim(const char *s1, const char *set)
 	ft_strlcpy(ptr, &s1[start], (end - start + 1));
 	return (ptr);
 }
+
+/*int	main()
+{
+	const char	*s1 = "azzayzxacavggggaxyza";
+	const char	*set = "axyz";
+	char	*trim = ft_strtrim(s1, set);
+
+	printf("%s\n", trim);
+	free(trim);
+	return (0);
+}*/

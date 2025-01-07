@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:26:46 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 11:57:35 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:54:13 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ char	**ft_split(const char *s, char c)
 	ptr[i] = NULL;
 	return (ptr);
 }
-/*
-int	main()
+
+/*int	main()
 {
 	char	*str = "hola como estas";
 	char	**ptr;
