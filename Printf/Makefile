@@ -6,14 +6,14 @@
 #    By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 11:56:55 by egelma-b          #+#    #+#              #
-#    Updated: 2025/01/14 13:14:44 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/01/14 13:45:12 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = prints.a
 AR= ar -rcs
 RM= rm -rf
-SRC = ft_print_char.c ft_print_string.c
+SRC = ft_print_char.c ft_print_string.c ft_print_percent.c ft_print_hex_pointer.c
 SRC_UTILS = utils/ft_strlen.c
 OBJECTS = $(SRC:.c=.o)
 OBJECTS_UTILS= $(SRC_UTILS:.c=.o)

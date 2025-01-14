@@ -6,11 +6,13 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 13:10:03 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 12:10:52 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/08 11:14:40 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <fcntl.h>
+#include <unistd.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -29,13 +31,13 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
-/*int	main()
+int	main()
 {
-	int	i;
 	int	fd;
+	int	num = 4563;
 
-	fd = 1;
-	i = -1237236;
-	ft_putnbr_fd(i, fd);
+	fd = open("hola.txt", O_WRONLY | O_CREAT | O_TRUNC);
+	ft_putnbr_fd(num, fd);
+	close(fd);
 	return (0);
-}*/
+}

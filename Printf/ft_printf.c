@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:06:54 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/14 13:13:38 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:44:33 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@ int	ft_printf(const char *str, ...)
 
 int	main()
 {
-	ft_printf("%c con %s", 'a', "patatas");
+	int	colacao;
+
+	colacao = 12355678;
+	ft_printf("%c con %s", 'a', "patatas\n");
+	ft_printf("%% y %p" &colacao);
 	return(0);
 }
