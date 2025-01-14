@@ -6,11 +6,11 @@
 #    By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 11:56:55 by egelma-b          #+#    #+#              #
-#    Updated: 2025/01/13 11:03:59 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/01/14 21:38:58 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = prints.a
+NAME = libftprintf.a
 NAME_LIBFT= libft.a
 AR= ar -rcs
 RM= rm -rf
@@ -23,9 +23,10 @@ all: $(NAME_LIBFT) $(NAME)
 
 $(NAME_LIBFT):
 	make -C utils/Libft
+	cp utils/Libft/libft.a $(NAME)
 
 $(NAME): $(OBJECTS) $(OBJECTS_UTILS) $(HEADER)
-	$(AR) $(NAME) *.o $(PATH_LIBFT)/$(NAME_LIBFT)
+	$(AR) $(NAME) *.o 
 
 %.o: %.c Makefile $(HEADER) 
 	cc -Wall -Wextra -Werror -c $(SRC)
