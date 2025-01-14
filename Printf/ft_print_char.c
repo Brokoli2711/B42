@@ -6,13 +6,13 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 12:43:56 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/14 12:54:40 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/14 19:19:34 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "prints.h"
 
-size_t	ft_print_char(char c)
+int	ft_print_char(int c)
 {
 	write(1, &c, 1);
 	return (1);

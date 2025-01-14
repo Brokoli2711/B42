@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
+/*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 12:43:56 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/14 12:54:40 by egelma-b         ###   ########.fr       */
+/*   Created: 2024/12/27 12:29:50 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/02 13:53:16 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "prints.h"
+#include "libft.h"
 
-size_t	ft_print_char(char c)
+int	ft_strlen(const char *str)
 {
-	write(1, &c, 1);
-	return (1);
+	int	len;
+
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
 }

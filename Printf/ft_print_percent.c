@@ -6,13 +6,13 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:15:06 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/14 13:16:24 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:07:33 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "prints.h"
 
-size_t	ft_print_percent(void)
+int	ft_print_percent(void)
 {
 	write(1, "%", 1);
 	return (1);

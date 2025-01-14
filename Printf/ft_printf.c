@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:06:54 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/14 13:44:33 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/14 19:36:46 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	print_selection(va_list args, const char *str)
 {
 	str++;
 	if (*str == 'c')
-		return (ft_print_char((char)va_arg(args, int)));
+		return (ft_print_char(va_arg(args, int)));
 	else if (*str == 's')
 		return (ft_print_string(va_arg(args, char *)));
 	else if (*str == 'p')
@@ -39,8 +39,8 @@ static int	print_selection(va_list args, const char *str)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list args;
-	size_t	length;
+	va_list	args;
+	int	length;
 
 	va_start(args, str);
 	length = 0;
@@ -61,10 +61,10 @@ int	ft_printf(const char *str, ...)
 
 int	main()
 {
-	int	colacao;
+	double	colacao;
 
-	colacao = 12355678;
+	colacao = 1235567812122132343;
 	ft_printf("%c con %s", 'a', "patatas\n");
-	ft_printf("%% y %p" &colacao);
+	ft_printf("%% y %p", &colacao);
 	return(0);
 }

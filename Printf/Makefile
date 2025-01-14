@@ -6,31 +6,36 @@
 #    By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 11:56:55 by egelma-b          #+#    #+#              #
-#    Updated: 2025/01/14 13:45:12 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/01/13 11:03:59 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = prints.a
+NAME_LIBFT= libft.a
 AR= ar -rcs
 RM= rm -rf
 SRC = ft_print_char.c ft_print_string.c ft_print_percent.c ft_print_hex_pointer.c
-SRC_UTILS = utils/ft_strlen.c
 OBJECTS = $(SRC:.c=.o)
-OBJECTS_UTILS= $(SRC_UTILS:.c=.o)
 HEADER = prints.h
+PATH_LIBFT= utils/Libft
 
-all: $(NAME)
+all: $(NAME_LIBFT) $(NAME)
+
+$(NAME_LIBFT):
+	make -C utils/Libft
 
 $(NAME): $(OBJECTS) $(OBJECTS_UTILS) $(HEADER)
-	$(AR) $(NAME) *.o
+	$(AR) $(NAME) *.o $(PATH_LIBFT)/$(NAME_LIBFT)
 
 %.o: %.c Makefile $(HEADER) 
-	cc -Wall -Wextra -Werror -c $(SRC) $(SRC_UTILS)
+	cc -Wall -Wextra -Werror -c $(SRC)
 
 clean:
+	make -C utils/Libft clean
 	$(RM) *.o
 
 fclean: clean
+	make -C utils/Libft fclean
 	$(RM) $(NAME)
 
 re: fclean all
