@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prints.h                                           :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 11:53:38 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/14 19:20:33 by egelma-b         ###   ########.fr       */
+/*   Created: 2025/01/15 11:12:09 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/15 13:13:27 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTS_H
-# define PRINTS_H
-#include "utils/Libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
+#include "libftprintf.h"
 
-int	ft_print_char(int c);
-int	ft_print_string(char *str);
-int	ft_print_percent(void);
-int	ft_print_hex_pointer(void *);
-#endif
+int	ft_print_int(int c)
+{
+	char	*num;
+	int	i;
+
+	num = ft_itoa(c);
+	i = 0;
+	while (num[i])
+		write(1, &num[i++], 1);
+	free(num);
+	return (i);
+}

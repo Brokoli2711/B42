@@ -6,7 +6,7 @@
 #    By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 11:56:55 by egelma-b          #+#    #+#              #
-#    Updated: 2025/01/14 21:38:58 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/01/15 13:11:50 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,11 @@ NAME = libftprintf.a
 NAME_LIBFT= libft.a
 AR= ar -rcs
 RM= rm -rf
-SRC = ft_print_char.c ft_print_string.c ft_print_percent.c ft_print_hex_pointer.c
+SRC = ft_print_char.c ft_print_string.c ft_print_percent.c ft_print_hex_pointer.c \
+	ft_print_int.c ft_print_unsigned_int.c ft_print_Mhex_num.c ft_print_mhex_num.c \
+	ft_printf.c
 OBJECTS = $(SRC:.c=.o)
-HEADER = prints.h
+HEADER = libftprintf.h
 PATH_LIBFT= utils/Libft
 
 all: $(NAME_LIBFT) $(NAME)

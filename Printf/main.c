@@ -1,4 +1,5 @@
-#include "../Libft/libft.h"
+#include "libftprintf.h"
+
 int	main()
 {
 	int	hola = printf("%i", 5678);

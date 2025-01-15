@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: elfo <marvin@42.fr>                        +#+  +:+       +#+         #
+#    By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/23 11:40:01 by elfo              #+#    #+#              #
-#    Updated: 2025/01/06 12:48:25 by egelma-b         ###   ########.fr        #
+#    Created: 2025/01/15 13:08:25 by egelma-b          #+#    #+#              #
+#    Updated: 2025/01/15 13:08:45 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar -rv
+AR = ar -rcs
 RM = rm -rf
 SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 		ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
@@ -28,19 +28,18 @@ SRC_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 			ft_lstmap.c
 OBJECTS = $(SRC:.c=.o)
 OBJECTS_BONUS = $(SRC_BONUS:.c=.o)
-HEADER = .
+HEADER = libft.h
 
 all: $(NAME)
 
-$(NAME): Makefile
-	$(CC) $(CFLAGS) -c $(SRC) -I $(HEADER) 
+$(NAME): $(OBJECTS) $(HEADER)
 	$(AR) $(NAME) $(OBJECTS)
-	ranlib $(NAME)
 
-bonus: Makefile
-	$(CC) $(CFLAGS) -c $(SRC_BONUS) $(SRC) -I $(HEADER)
+bonus: $(OBJECTS) $(OBJECTS_BONUS) $(HEADER)
 	$(AR) $(NAME) $(OBJECTS_BONUS) $(OBJECTS)
-	ranlib $(NAME)
+
+%.o: %.c Makefile $(HEADER)
+	$(CC) $(FLAGS) -c -o $@ $<
 clean :
 	$(RM) $(OBJECTS)
 	$(RM) $(OBJECTS_BONUS)
@@ -48,6 +47,6 @@ clean :
 fclean : clean
 	$(RM) $(NAME)
 
-.PHONY: all bonus clean fclean re
-
 re: fclean all
+
+.PHONY: all bonus clean fclean re
