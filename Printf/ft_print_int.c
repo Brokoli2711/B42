@@ -6,11 +6,11 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:12:09 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/15 13:13:27 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:22:44 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_print_int(int c)
 {

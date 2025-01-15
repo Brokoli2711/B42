@@ -6,11 +6,11 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:12:01 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/15 13:14:28 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:23:45 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_print_unsigned_int(unsigned int c)
 {

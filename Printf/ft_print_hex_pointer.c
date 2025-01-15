@@ -6,11 +6,11 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:17:52 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/15 13:13:07 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:22:32 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static char	*pointer_to_hex(int *iptr, char *hex)
 {

@@ -6,11 +6,11 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:15:06 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/15 13:14:11 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:23:21 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_print_percent(void)
 {

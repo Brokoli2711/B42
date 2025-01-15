@@ -6,11 +6,11 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:51:42 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/15 13:13:41 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:22:56 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static char	*num_to_hex(unsigned int num, char *hex)
 {
