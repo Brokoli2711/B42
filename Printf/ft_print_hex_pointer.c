@@ -6,55 +6,57 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:17:52 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/15 13:22:32 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:43:16 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*pointer_to_hex(int *iptr, char *hex)
+static int	len_hex(unsigned long long iptr)
 {
-	unsigned int hex_value;
 	int	i;
-	unsigned int	digit;
 
-	hex_value = (unsigned int)*iptr;
 	i = 0;
-	while (hex_value != 0)
+	if (iptr == 0)
+		return (3);
+	while (iptr != 0)
 	{
-		digit = hex_value % 16;
-		if (digit < 10)
-			hex[i++] = '0' + digit;
-		else
-			hex[i++] = 'a' + (digit - 10);
-		hex_value /= 16;
+		i++;
+		iptr /= 16;
 	}
-	return (hex);
+	return (i + 2);
 }
 
-static	int print_hex_pointer(char *hex)
+static int	point_to_hex(unsigned long long iptr)
 {
-	int	len;
-
-	len = ft_strlen(hex);
-	write(1, "0x", 2);
-	while(len > 0)
-		write(1, &hex[len--], 1);
-	return(ft_strlen(hex));
+	unsigned long long	digit;
+	char	cdigit;
+	if (iptr == 0)
+		return (0);
+	if (point_to_hex(iptr/16) == -1)
+		return (-1);
+	digit = iptr % 16;
+	if (digit < 10)
+		cdigit = '0' + digit;
+	else
+		cdigit = 'a' + (digit - 10);
+	if (write(1, &cdigit, 1) == -1)
+		return (-1);
+	return (0);
 }
 
 int	ft_print_hex_pointer(void *ptr)
 {
-	int	*iptr;
-	char	*hex;
-	int	len;
+	unsigned long long	iptr;
 
-	iptr =	ptr;
-	hex = (char *)malloc(20);
-	if(!hex)
-		return (0);
-	pointer_to_hex(iptr, hex);
-	len = print_hex_pointer(hex);
-	free(hex);
-	return(len);
+	if (!ptr)
+	{
+		if (write(1, "(nil)", 5) == -1)
+			return (-1);
+		return (5);
+	}
+	iptr =	(unsigned long long)ptr;
+	if(write(1, "0x", 2) == -1 || point_to_hex(iptr) == -1)
+		return (-1);
+	return(len_hex(iptr));
 }

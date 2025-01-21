@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:06:54 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/15 13:28:41 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:13:30 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int	print_selection(va_list args, const char *str)
 {
-	str++;
 	if (*str == 'c')
 		return (ft_print_char(va_arg(args, int)));
 	else if (*str == 's')
@@ -44,7 +43,7 @@ int	ft_printf(const char *str, ...)
 	while(*str)
 	{
 		if (*str == '%')
-			length += print_selection(args, str++);
+			length += print_selection(args, ++str);
 		else
 		{
 			write(1, str, 1);
@@ -53,5 +52,5 @@ int	ft_printf(const char *str, ...)
 		str++;
 	}
 	va_end(args);
-	return (0);
+	return (length);
 }
