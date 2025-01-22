@@ -6,53 +6,57 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:51:42 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/15 13:22:56 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/22 11:22:35 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*num_to_hex(unsigned int num, char *hex)
+static int	num_to_hex(unsigned int num)
 {
 	unsigned int	digit;
+	char	ndigit;
+
+	if (num == 0)
+	{
+		return (0); 
+	}
+	if (num_to_hex(num/16) == -1)
+		return (-1);
+	digit = num % 16;
+	if (digit < 10)
+		ndigit = '0' + digit;
+	else
+		ndigit = 'a' + (digit - 10);
+	if (write(1, &ndigit, 1) == -1)
+		return (-1);
+	return (0);
+}
+
+static int len_hex(unsigned int num)
+{
 	int	i;
 
 	i = 0;
 	if (num == 0)
-		hex[i] = '0';
+		return (1);
 	while (num != 0)
 	{
-		digit = num % 16;
-		if (digit < 10)
-			hex[i++] = '0' + digit;
-		else
-			hex[i++] = 'a' + (digit - 10);
+		i++;
 		num /= 16;
 	}
-	return (hex);
-}
-
-static void	print_hex_num(char  *hex)
-{
-	int	len;
-
-	len = ft_strlen(hex);
-	while (len >= 0)
-		write(1, &hex[len--], 1);
-		
+	return (i);
 }
 
 int	ft_print_mhex_num(unsigned int num)
 {
-	char	*hex;
 	int	len;
 
-	hex = (char *)malloc(20);
-	if(!hex)
-		return (0);
-	num_to_hex(num, hex);
-	print_hex_num(hex);
-	len = ft_strlen(hex);
-	free(hex);
+	if (num_to_hex(num) == -1)
+		return (-1);
+	if (num == 0)
+		if (write(1, "0", 1) == -1)
+			return (-1);
+	len = len_hex(num);
 	return (len);
 }

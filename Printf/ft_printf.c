@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:06:54 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/21 13:13:30 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/22 11:22:55 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static int	print_selection(va_list args, const char *str)
 	else if (*str == 'i' || *str == 'd')
 		return (ft_print_int(va_arg(args, int)));
 	else if (*str == 'u')
-		return (ft_print_unsigned_int(va_arg(args, unsigned int)));
+		return (ft_print_unsigned_int(va_arg(args, int)));
 	else if (*str == 'x')
 		return (ft_print_mhex_num(va_arg(args, unsigned int)));
 	else if (*str == 'X')
-		return (ft_print_Mhex_num(va_arg(args, unsigned int)));
+		return (ft_print_Mhex_num(va_arg(args, unsigned long long)));
 	else if (*str == '%')
 		return (ft_print_percent());
 	return (0);

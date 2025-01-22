@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:43:57 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 11:52:30 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/22 10:50:38 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_itoa(int n);
+char	*ft_uitoa(unsigned int n);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	**ft_split(const char *s, char c);
 t_list	*ft_lstnew(void *content);

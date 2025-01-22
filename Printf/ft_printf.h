@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:53:38 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/21 13:14:27 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/22 11:21:45 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_print_string(char *str);
 int	ft_print_percent(void);
 int	ft_print_hex_pointer(void *);
 int	ft_print_int(int c);
-int	ft_print_unsigned_int(unsigned int c);
+int	ft_print_unsigned_int(int c);
 int	ft_print_Mhex_num(unsigned int c);
 int	ft_print_mhex_num(unsigned int c);
 int	ft_printf(const char *str, ...);
