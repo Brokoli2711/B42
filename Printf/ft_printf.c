@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:06:54 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/22 11:22:55 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:45:17 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,22 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int	length;
+	int	selection;
 
 	va_start(args, str);
 	length = 0;
+	selection = 0;
 	while(*str)
 	{
 		if (*str == '%')
-			length += print_selection(args, ++str);
+		{
+			if (!str[1])
+				return (-1);
+			selection = print_selection(args, ++str);
+			if (selection == -1)
+				return (-1);
+			length += selection;
+		}
 		else
 		{
 			write(1, str, 1);

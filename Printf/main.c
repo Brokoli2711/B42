@@ -2,6 +2,10 @@
 
 int	main()
 {
-	ft_printf("%u\n", -45);
+	int hola = ft_printf("    %", 42, -12);
+	int	hola2 = printf("    %", 42, -12);
+
+	ft_printf("%i\n", hola2);
+	printf("%i", hola);
 	return (0);
 }
