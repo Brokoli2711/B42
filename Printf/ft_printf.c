@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:06:54 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/23 11:45:17 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:23:19 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	print_selection(va_list args, const char *str)
 	else if (*str == 'x')
 		return (ft_print_mhex_num(va_arg(args, unsigned int)));
 	else if (*str == 'X')
-		return (ft_print_Mhex_num(va_arg(args, unsigned long long)));
+		return (ft_print_mayorhex_num(va_arg(args, unsigned long long)));
 	else if (*str == '%')
 		return (ft_print_percent());
 	return (0);
@@ -35,14 +35,13 @@ static int	print_selection(va_list args, const char *str)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	args;
-	int	length;
-	int	selection;
+	va_list		args;
+	int			length;
+	static int	selection = 0;
 
 	va_start(args, str);
 	length = 0;
-	selection = 0;
-	while(*str)
+	while (*str)
 	{
 		if (*str == '%')
 		{
@@ -51,13 +50,11 @@ int	ft_printf(const char *str, ...)
 			selection = print_selection(args, ++str);
 			if (selection == -1)
 				return (-1);
-			length += selection;
+			length += selection - 1;
 		}
-		else
-		{
-			write(1, str, 1);
-			length++;
-		}
+		else if (write(1, str, 1) == -1)
+			return (-1);
+		length++;
 		str++;
 	}
 	va_end(args);

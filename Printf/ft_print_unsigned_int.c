@@ -6,18 +6,18 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:12:01 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/22 10:53:49 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:26:18 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_unsigned_int (int c)
+int	ft_print_unsigned_int(int c)
 {
-	char	*num;
+	char			*num;
 	unsigned int	unum;
-	int	i;
-	
+	int				i;
+
 	unum = (unsigned int)c;
 	num = ft_uitoa(unum);
 	if (!num)

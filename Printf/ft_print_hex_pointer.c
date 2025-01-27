@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:17:52 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/21 12:43:16 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:28:36 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ static int	len_hex(unsigned long long iptr)
 static int	point_to_hex(unsigned long long iptr)
 {
 	unsigned long long	digit;
-	char	cdigit;
+	char				cdigit;
+
 	if (iptr == 0)
 		return (0);
-	if (point_to_hex(iptr/16) == -1)
+	if (point_to_hex(iptr / 16) == -1)
 		return (-1);
 	digit = iptr % 16;
 	if (digit < 10)
@@ -55,8 +56,8 @@ int	ft_print_hex_pointer(void *ptr)
 			return (-1);
 		return (5);
 	}
-	iptr =	(unsigned long long)ptr;
-	if(write(1, "0x", 2) == -1 || point_to_hex(iptr) == -1)
+	iptr = (unsigned long long)ptr;
+	if (write(1, "0x", 2) == -1 || point_to_hex(iptr) == -1)
 		return (-1);
-	return(len_hex(iptr));
+	return (len_hex(iptr));
 }

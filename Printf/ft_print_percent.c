@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:15:06 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/15 13:23:21 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/27 11:58:47 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	ft_print_percent(void)
 {
-	write(1, "%", 1);
+	if (write(1, "%", 1) == -1)
+		return (-1);
 	return (1);
 }

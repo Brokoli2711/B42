@@ -6,7 +6,7 @@
 #    By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 11:56:55 by egelma-b          #+#    #+#              #
-#    Updated: 2025/01/15 13:22:01 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/01/27 11:08:04 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(NAME_LIBFT):
 	make -C utils/Libft
 	cp utils/Libft/libft.a $(NAME)
 
-$(NAME): $(OBJECTS) $(OBJECTS_UTILS) $(HEADER)
+$(NAME): $(OBJECTS) $(OBJECTS_UTILS) $(HEADER) $(NAME_LIBFT)
 	$(AR) $(NAME) *.o 
 
 %.o: %.c Makefile $(HEADER) 

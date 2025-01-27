@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:51:42 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/22 11:22:35 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:25:22 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 static int	num_to_hex(unsigned int num)
 {
 	unsigned int	digit;
-	char	ndigit;
+	char			ndigit;
 
 	if (num == 0)
-	{
-		return (0); 
-	}
-	if (num_to_hex(num/16) == -1)
+		return (0);
+	if (num_to_hex(num / 16) == -1)
 		return (-1);
 	digit = num % 16;
 	if (digit < 10)
@@ -33,7 +31,7 @@ static int	num_to_hex(unsigned int num)
 	return (0);
 }
 
-static int len_hex(unsigned int num)
+static int	len_hex(unsigned int num)
 {
 	int	i;
 

@@ -1,11 +1,9 @@
 #include "ft_printf.h"
 
-int	main()
+int	main(void)
 {
-	int hola = ft_printf("    %", 42, -12);
-	int	hola2 = printf("    %", 42, -12);
+	printf("printf 1 es:%d\n" ,ft_printf("%s %u %x %x", "hola", -27, 34567, 34567));
+	ft_printf("printf 2 es:%d\n" ,ft_printf("%s %u %x %x", "hola", -27, 34567, 34567));
 
-	ft_printf("%i\n", hola2);
-	printf("%i", hola);
 	return (0);
 }

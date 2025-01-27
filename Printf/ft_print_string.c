@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 12:45:16 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/21 11:30:41 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:17:42 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ int	ft_print_string(char *str)
 		write(1, "(null)", 6);
 		return (6);
 	}
-	while(str[len])
+	while (str[len])
 		write(1, &str[len++], 1);
-	return(ft_strlen(str));
+	return (ft_strlen(str));
 }
-
-
-
-

@@ -6,14 +6,13 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:48:03 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/22 10:50:04 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/01/27 11:13:24 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-static size_t	count_size(unsigned n)
+static size_t	count_size(unsigned int n)
 {
 	size_t	count;
 
