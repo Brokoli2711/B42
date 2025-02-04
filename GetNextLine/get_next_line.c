@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:49:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/02/03 13:54:59 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:10:02 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*make_line(char *sline)
 	char	*line;
 
 	i = 0;
-	if (sline[i] '\0')
+	if (sline[i] == '\0')
 		return (NULL);
 	while (sline[i] != '\0' && sline[i] != '\n')
 		i++;
@@ -77,7 +77,7 @@ static char	*read_line(int fd, char *sline)
 	n_char = 1;
 	while (n_char > 0)
 	{
-		n_char = read(fd, temp, BUFF_SIZE);
+		n_char = read(fd, temp, BUFFER_SIZE);
 		if (n_char == -1)
 		{
 			free(temp);
@@ -99,11 +99,11 @@ char	*get_next_line(int fd)
 	static char	*sline;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		return (NULL)
+		return (NULL);
 	sline = read_line(fd, sline);
 	if (sline == NULL)
 		return (NULL);
 	line = make_line(sline);
-	sline = save_rest(sline);
+	sline = make_rest(sline);
 	return (line);
 }

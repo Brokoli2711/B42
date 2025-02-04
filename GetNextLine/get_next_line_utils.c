@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:58:08 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/02/03 14:12:27 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:23:00 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,33 @@ char	*ft_strcat(char *s1, char *s2)
 	while (s1[++i] != '\0')
 		s[i] = s1[i];
 	i = -1;
-	while (s2[++i] !0 '\0')
+	while (s2[++i] != '\0')
 		s[ft_strlen(s1) + i] = s2[i];
 	s[ft_strlen(s1) + 1] = '\0';
 	return (s);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*ptr;
+	size_t	i;
+	size_t	j;
+
+	ptr = malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		ptr[i + j] = s2[j];
+		j++;
+	}
+	ptr[i + j] = '\0';
+	return (ptr);
 }
