@@ -6,7 +6,7 @@
 #    By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 15:33:19 by egelma-b          #+#    #+#              #
-#    Updated: 2025/02/04 12:01:43 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/03/03 13:14:19 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ $(NAME): $(OBJECTS) $(HEADER)
 	$(AR) $(NAME) *.o 
 
 %.o: %.c Makefile $(HEADER) 
-	cc -Wall -Wextra -Werror -D BUFFER_SIZE=1 -c $(SRC)
+	cc -Wall -Wextra -Werror -c $(SRC)
 
 clean:
 	$(RM) *.o

@@ -9,7 +9,7 @@ int	main(int argc, char *argv[])
 	int	fd;
 	
 	line = "13";
-	if (argc = 2)
+	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
 		if (fd == -1)
@@ -21,5 +21,6 @@ int	main(int argc, char *argv[])
 		}
 		close(fd);
 	}
+	printf("%d", BUFFER_SIZE);
 	return (0);
 }

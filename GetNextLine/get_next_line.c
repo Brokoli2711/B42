@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:49:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/02/03 16:10:02 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:09:11 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static char	*ft_free_strjoin(char *sline, char *temp)
 
 static char	*make_rest(char *sline)
 {
-	int	i;
-	int	n;
+	int		i;
+	int		n;
 	char	*new_sline;
 
 	i = 0;
@@ -42,11 +42,11 @@ static char	*make_rest(char *sline)
 		new_sline[n++] = sline[i++];
 	free(sline);
 	return (new_sline);
-}	
+}
 
 static char	*make_line(char *sline)
 {
-	int	i;
+	int		i;
 	char	*line;
 
 	i = 0;
@@ -68,7 +68,7 @@ static char	*make_line(char *sline)
 
 static char	*read_line(int fd, char *sline)
 {
-	int	n_char;
+	int		n_char;
 	char	*temp;
 
 	if (!sline)
@@ -89,13 +89,12 @@ static char	*read_line(int fd, char *sline)
 		if (ft_strchr(sline, '\n'))
 			break ;
 	}
-	free(temp);
-	return (sline);
+	return (free(temp), sline);
 }
 
 char	*get_next_line(int fd)
 {
-	char	*line;
+	char		*line;
 	static char	*sline;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
