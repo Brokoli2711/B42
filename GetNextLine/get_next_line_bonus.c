@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:49:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/12 11:29:39 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:00:59 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,14 @@ static char	*read_line(int fd, char *sline)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*sline;
+	static char	*sline[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
-	sline = read_line(fd, sline);
-	if (sline == NULL)
+	sline[fd] = read_line(fd, sline[fd]);
+	if (sline[fd] == NULL)
 		return (NULL);
-	line = make_line(sline);
-	sline = make_rest(sline);
+	line = make_line(sline[fd]);
+	sline[fd] = make_rest(sline[fd]);
 	return (line);
 }
