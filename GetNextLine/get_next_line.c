@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:49:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/12 11:29:39 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/03/20 11:37:06 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*sline;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= 1000000000 || read(fd, 0, 0) < 0)
 		return (NULL);
 	sline = read_line(fd, sline);
 	if (sline == NULL)
