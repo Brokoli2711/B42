@@ -6,18 +6,14 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:51:32 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/12 12:40:43 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:30:09 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define MAX_BUFF_SIZE 2147483646
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
-# elif BUFFER_SIZE > 2147483646
-#  undef BUFFER_SIZE
-#  define BUFFER_SIZE MAX_BUFF_SIZE
 # endif
 # include <stdlib.h>
 # include <unistd.h>
