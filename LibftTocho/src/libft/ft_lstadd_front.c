@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 12:51:32 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/21 11:23:24 by egelma-b         ###   ########.fr       */
+/*   Created: 2025/01/05 15:19:12 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/05 15:29:03 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
+#include "libft.h"
 
-char				*get_next_line(int fd);
-unsigned long		ft_strlen(char *s);
-char				*ft_strjoin(char *s1, char *s2);
-char				*ft_strchr(char *sline, int c);
-void				*ft_calloc(unsigned long int size, unsigned long int c);
-#endif
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst)
+	{
+		if (*lst)
+			new->next = *lst;
+		*lst = new;
+	}
+}

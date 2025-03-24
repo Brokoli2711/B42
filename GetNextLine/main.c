@@ -39,4 +39,5 @@ int	main(int argc, char *argv[])
 		close (fd[2]);
 	}
 	return (0);
+	printf("%d", BUFFER_SIZE);
 }

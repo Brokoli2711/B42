@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 12:51:32 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/21 11:23:24 by egelma-b         ###   ########.fr       */
+/*   Created: 2025/01/05 15:36:30 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/01/05 21:51:44 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
+#include "libft.h"
 
-char				*get_next_line(int fd);
-unsigned long		ft_strlen(char *s);
-char				*ft_strjoin(char *s1, char *s2);
-char				*ft_strchr(char *sline, int c);
-void				*ft_calloc(unsigned long int size, unsigned long int c);
-#endif
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
