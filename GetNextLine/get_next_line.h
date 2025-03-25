@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:51:32 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/21 11:23:24 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:07:03 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <limits.h>
+# include <stdio.h>
 
 char				*get_next_line(int fd);
 unsigned long		ft_strlen(char *s);

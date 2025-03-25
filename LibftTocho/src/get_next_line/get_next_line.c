@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:49:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/25 11:07:24 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:13:24 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 #include <limits.h>
-#include <stdio.h>
 
 static char	*ft_free_strjoin(char *sline, char *temp)
 {
@@ -21,6 +20,12 @@ static char	*ft_free_strjoin(char *sline, char *temp)
 	new = ft_strjoin(sline, temp);
 	free(sline);
 	return (new);
+}
+
+static char	*free_sline(char *sline)
+{
+	free(sline);
+	return (NULL);
 }
 
 static char	*make_rest(char *sline)
@@ -34,8 +39,7 @@ static char	*make_rest(char *sline)
 		i++;
 	if (sline[i] == '\0')
 	{
-		free(sline);
-		return (NULL);
+		return (free_sline(sline));
 	}
 	new_sline = ft_calloc(sizeof(char), (ft_strlen(sline) - i + 1));
 	if (!new_sline)
@@ -81,7 +85,7 @@ static char	*read_line(int fd, char *sline)
 		sline = ft_calloc(1, 1);
 	temp = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
 	if (!temp)
-		return (NULL);
+		return (free_sline(sline));
 	n_char = 1;
 	while (n_char > 0)
 	{
@@ -89,8 +93,7 @@ static char	*read_line(int fd, char *sline)
 		if (n_char == -1)
 		{
 			free(temp);
-			free(sline);
-			return (NULL);
+			return (free_sline(sline));
 		}
 		temp[n_char] = '\0';
 		sline = ft_free_strjoin(sline, temp);
@@ -103,14 +106,14 @@ static char	*read_line(int fd, char *sline)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*sline[FOPEN_MAX];
+	static char	*sline;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > INT_MAX)
 		return (NULL);
-	sline[fd] = read_line(fd, sline[fd]);
-	if (sline[fd] == NULL)
-		return (NULL);
-	line = make_line(sline[fd]);
-	sline[fd] = make_rest(sline[fd]);
+	sline = read_line(fd, sline);
+	if (sline == NULL)
+		return (free_sline(sline));
+	line = make_line(sline);
+	sline = make_rest(sline);
 	return (line);
 }

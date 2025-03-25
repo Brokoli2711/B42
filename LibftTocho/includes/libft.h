@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:43:57 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/24 13:00:11 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:16:26 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <limits.h>
 # include <stdint.h>
 # include <stdarg.h>
+# ifndef BUFFER_SIZE
+#	define BUFFER_SIZE 1
+# endif
 
 typedef struct s_list
 {
@@ -65,9 +68,24 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_itoa(int n);
+char	*ft_uitoa(unsigned int n);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	**ft_split(const char *s, char c);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//Printf
+int		ft_printf(const char *str, ...);	
+int		ft_print_char(int c);
+int		ft_print_int(int c);
+int		ft_print_hex_pointer(void *ptr);
+int		ft_print_mhex_num(unsigned int num);
+int		ft_print_mayorhex_num(unsigned int num);
+int		ft_print_percent(void);
+int		ft_print_string(char *str);
+int		ft_print_unsigned_int(int c);
+
+//Get_next_line
+char	*get_next_line(int fd);
 #endif

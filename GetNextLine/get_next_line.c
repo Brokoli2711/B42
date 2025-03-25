@@ -6,11 +6,12 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:49:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/20 11:37:06 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:11:57 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <limits.h>
 
 static char	*ft_free_strjoin(char *sline, char *temp)
 {
@@ -19,6 +20,12 @@ static char	*ft_free_strjoin(char *sline, char *temp)
 	new = ft_strjoin(sline, temp);
 	free(sline);
 	return (new);
+}
+
+static char	*free_sline(char *sline)
+{
+	free(sline);
+	return (NULL);
 }
 
 static char	*make_rest(char *sline)
@@ -32,8 +39,7 @@ static char	*make_rest(char *sline)
 		i++;
 	if (sline[i] == '\0')
 	{
-		free(sline);
-		return (NULL);
+		return (free_sline(sline));
 	}
 	new_sline = ft_calloc(sizeof(char), (ft_strlen(sline) - i + 1));
 	if (!new_sline)
@@ -79,7 +85,7 @@ static char	*read_line(int fd, char *sline)
 		sline = ft_calloc(1, 1);
 	temp = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
 	if (!temp)
-		return (NULL);
+		return (free_sline(sline));
 	n_char = 1;
 	while (n_char > 0)
 	{
@@ -87,8 +93,7 @@ static char	*read_line(int fd, char *sline)
 		if (n_char == -1)
 		{
 			free(temp);
-			free(sline);
-			return (NULL);
+			return (free_sline(sline));
 		}
 		temp[n_char] = '\0';
 		sline = ft_free_strjoin(sline, temp);
@@ -103,11 +108,11 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*sline;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= 1000000000 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > INT_MAX)
 		return (NULL);
 	sline = read_line(fd, sline);
 	if (sline == NULL)
-		return (NULL);
+		return (free_sline(sline));
 	line = make_line(sline);
 	sline = make_rest(sline);
 	return (line);
