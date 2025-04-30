@@ -6,7 +6,7 @@ INC_DIR = includes
 CC = gcc
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -MMD -MP
 
 SRC = $(wildcard $(SRC_DIR)/*.c)
 OBJECTS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
@@ -15,11 +15,11 @@ DEPS = $(OBJECTS:.o=.d)
 all: ${NAME}
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	${CC} ${CFLAGS} -ILibft -c $< -o $@ -I $(INC_DIR)
+	${CC} ${CFLAGS} -Ilibft -c $< -o $@ -I $(INC_DIR)
 
 ${NAME}: ${OBJECTS}
 	@make -C libft
-	${CC} ${CFLAGS} $^ -Llibft ${OBJECTS} -o ${NAME}
+	${CC} ${CFLAGS} -Llibft ${OBJECTS} -lft -o ${NAME}
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
