@@ -36,7 +36,7 @@ void	print_square(t_data img, int x, int y, int offset, int color)
 		actual_y++;
 	}
 }
-int	main(void)
+/*int	main(void)
 {
 	void	*mlx;
 	void	*mlx_win;
@@ -51,4 +51,4 @@ int	main(void)
 	print_square(img, 300, 220, 5, 0x0000FF00);
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
-}
+}*/

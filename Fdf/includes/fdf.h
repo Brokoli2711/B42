@@ -72,6 +72,7 @@ void	map_info(t_env *env, char *file);
 void	check_format(t_env *env, char *file);
 void	parse_map(t_env *env, char *file);
 int	env_init(t_env *env);
+int	render(t_env *env);
 
 //POINTS.C
 void	fill_2d_points(t_env *env);

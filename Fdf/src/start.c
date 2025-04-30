@@ -104,5 +104,5 @@ int	env_init(t_env *env)
 int	render(t_env *env)
 {
 	draw_background(env);
-
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: elfo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:17:15 by elfo              #+#    #+#             */
-/*   Updated: 2025/04/07 12:42:05 by elfo             ###   ########.fr       */
+/*   Updated: 2025/04/30 16:08:33 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define PUSH_SWAP_H
 # include <stdbool.h>
 # include <limits.h>
-
-# include "../../LibftTocho/includes/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct s_stack_node
 {

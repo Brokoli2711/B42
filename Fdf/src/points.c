@@ -1,5 +1,5 @@
 #include "../includes/fdf.h"
-
+#include "math.h"
 void	fill_2d_points(t_env *env)
 {
 	int	i;
