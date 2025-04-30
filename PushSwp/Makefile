@@ -29,7 +29,7 @@ libft:
 
 clean:
 	make clean -C libft
-	${RM} ${OBJECTS} ${DEPS}
+	${RM} ${OBJ_DIR}
 
 fclean: clean
 	${RM} ${NAME}

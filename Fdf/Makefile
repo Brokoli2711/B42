@@ -20,7 +20,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 ${NAME}: ${OBJS}
 	@make -C libft
 	@make -C mlx_linux
-	${CC} ${CFLAGS} $^ -Llibft -Lmlx_linux -lmlx -lXext -lX11 -o ${NAME}
+	${CC} ${CFLAGS} $^ -Llibft -L/usr/lib -Lmlx_linux -lm -lXext -lX11 -o ${NAME}
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
