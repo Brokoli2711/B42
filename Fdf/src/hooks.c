@@ -10,19 +10,19 @@ void	h_management(t_env *env)
 
 int	key_handler(int key, t_env *env)
 {
-	if (key == 53)
+	if (key == 65307)
 		close_win(env);
-	else if (key == 13 || key == 126)
+	else if (key == 13 || key == 97)
 		env->translation -= TRANS_X;
-	else if (key == 1 || key == 125)
+	else if (key == 1 || key == 100)
 		env->translation += TRANS_X;
-	else if (key == 0 || key == 123)
+	else if (key == 0 || key == 119)
 		env->alpha += 0.01;
-	else if (key == 2 || key == 124)
+	else if (key == 2 || key == 115)
 		env->alpha -= 0.01;
-	else if (key == 6)
+	else if (key == 65362)
 		env->altitude += ALTITUDE;
-	else if (key == 7)
+	else if (key == 65364)
 		env->altitude -= ALTITUDE;
 	return (0);
 }

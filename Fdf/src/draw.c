@@ -33,7 +33,7 @@ void	draw_line(t_env *env, t_fpoint point0, t_fpoint point1)
 	y = point0.y;
 	while (i < step)
 	{
-		put_pixel(env, -x + WINDOW_WIDTH / 2 + env->translation, -y + WINDOW_HEIGHT / 2 + env->translation, RED);
+		put_pixel(env, -x + WINDOW_WIDTH / 2.0f + env->translation, -y + WINDOW_HEIGHT / 2.0f + env->translation, RED);
 		x += delta.dx;
 		y += delta.dy;
 		i++;

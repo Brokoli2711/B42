@@ -6,11 +6,11 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:26:46 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 17:54:13 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/05 14:25:30 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 static void	ft_free_split(char	**ptr)
 {

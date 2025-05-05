@@ -1,4 +1,5 @@
 #include "../includes/fdf.h"
+#include <stdio.h>
 
 void	map_info(t_env *env, char *file)
 {
@@ -58,9 +59,11 @@ void	parse_map(t_env *env, char *file)
 	char	**line_tab;
 
 	fd = open(file, O_RDONLY);
-	env->final_tab = malloc(env->map_w * sizeof(int));
-	if (!env->final_tab[env->y])
-		error("Malloc failed");
+	env->final_tab = malloc(env->map_h * sizeof(int *));
+	if (!env->final_tab)
+	{
+		error("Parse malloc failed");
+	}
 	while (env->y < env->map_h)
 	{
 		env->final_tab[env->y] = malloc(env->map_w * sizeof(int));
@@ -93,7 +96,7 @@ int	env_init(t_env *env)
 		return (MLX_ERROR);
 	env->img = mlx_new_image(env->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	env->addr = mlx_get_data_addr(env->img, &env->bits_per_pixel, &env->line_length, &env->endian);
-;	fill_2d_points(env);
+	fill_2d_points(env);
 	limits(env);
 	h_management(env);
 	mlx_loop_hook(env->mlx, render, env);
@@ -104,5 +107,8 @@ int	env_init(t_env *env)
 int	render(t_env *env)
 {
 	draw_background(env);
+	fill_2d_points(env);
+	limits(env);
+	mlx_put_image_to_window(env->mlx, env->window, env->img, 0, 0);
 	return (0);
 }

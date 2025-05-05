@@ -15,7 +15,7 @@
 # define ALTITUDE 0.1
 
 # define RED 0x00FF0000
-# define BLACK 0xFFFFFFFF
+# define BLACK 0x00000000
 
 typedef struct s_ipoint
 {
@@ -66,6 +66,7 @@ typedef struct s_env
 
 //FDF.C
 int	error(char *message);
+void	free_final_tab(t_env *env);
 
 //START.C
 void	map_info(t_env *env, char *file);
@@ -76,6 +77,7 @@ int	render(t_env *env);
 
 //POINTS.C
 void	fill_2d_points(t_env *env);
+void	fill_3d_points(t_env *env);
 
 //LIMITS.C
 void	limits(t_env *env);

@@ -1,5 +1,29 @@
 #include "../includes/fdf.h"
-#include "math.h"
+#include <stdio.h>
+
+void	fill_3d_points(t_env *env)
+{
+	int	i;
+
+	i = 0;
+	env->initial_points = malloc(env->map_h * env->map_w * (sizeof(t_ipoint)));
+	if (!env->initial_points)
+		error("Malloc failed");
+	env->y = 0;
+	while (env->y < env->map_h)
+	{
+		env->x = 0;
+		while (env->x < env->map_w)
+		{
+			env->initial_points[i] = (t_ipoint){env->x, env->y, env->final_tab[env->y][env->x]};
+			i++;
+			env->x++;
+		}
+		env->y++;
+	}
+	free_final_tab(env);
+}
+
 void	fill_2d_points(t_env *env)
 {
 	int	i;
@@ -7,7 +31,10 @@ void	fill_2d_points(t_env *env)
 	i = 0;
 	env->final_points = malloc(env->map_h * env->map_w * sizeof(t_fpoint));
 	if (!env->final_points)
+	{
+		printf("hola :)");
 		error("Malloc failed");
+	}
 	while (i < (env->map_w * env->map_h))
 	{
 		env->final_points[i].y = env->initial_points[i].y \
