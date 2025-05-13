@@ -1,5 +1,6 @@
 #include "../includes/fdf.h"
 #include <stdio.h>
+#include <unistd.h>
 
 void	map_info(t_env *env, char *file)
 {
@@ -15,7 +16,10 @@ void	map_info(t_env *env, char *file)
 		error("Empty map");
 	tab = ft_split(line, ' ');
 	while (tab[env->map_w])
-		free(tab[env->map_w++]);
+	{
+		free(tab[env->map_w]);
+		env->map_w++;
+	}
 	while (line)
 	{
 		free(line);
@@ -42,7 +46,10 @@ void	check_format(t_env *env, char *file)
 		free(line);
 		x = 0;
 		while (tab[x])
-			free(tab[x++]);
+		{
+			free(tab[x]);
+			x++;
+		}
 		free(tab);
 		if (x < env->map_w || x > env->map_w)
 			error("Wrong map format");
@@ -61,9 +68,7 @@ void	parse_map(t_env *env, char *file)
 	fd = open(file, O_RDONLY);
 	env->final_tab = malloc(env->map_h * sizeof(int *));
 	if (!env->final_tab)
-	{
 		error("Parse malloc failed");
-	}
 	while (env->y < env->map_h)
 	{
 		env->final_tab[env->y] = malloc(env->map_w * sizeof(int));
@@ -81,6 +86,7 @@ void	parse_map(t_env *env, char *file)
 		env->y++;
 		free(line_tab);
 	}
+	close(fd);
 }
 
 int	env_init(t_env *env)

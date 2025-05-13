@@ -10,9 +10,9 @@
 # define WINDOW_HEIGHT 1080
 # define MLX_ERROR 1
 # define ZOOM_FACTOR 1.1
-# define TRANS_X 10
-# define TRANS_Y 5
-# define ALTITUDE 0.1
+# define TRANS_X 7
+# define TRANS_Y 2
+# define ALTITUDE 0.04
 
 # define RED 0x00FF0000
 # define BLACK 0x00000000

@@ -1,5 +1,4 @@
 #include "../includes/fdf.h"
-#include <stdio.h>
 
 void	fill_3d_points(t_env *env)
 {
@@ -32,7 +31,6 @@ void	fill_2d_points(t_env *env)
 	env->final_points = malloc(env->map_h * env->map_w * sizeof(t_fpoint));
 	if (!env->final_points)
 	{
-		printf("hola :)");
 		error("Malloc failed");
 	}
 	while (i < (env->map_w * env->map_h))

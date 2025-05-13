@@ -2,7 +2,7 @@
 
 void	h_management(t_env *env)
 {
-	mlx_key_hook(env->window, key_handler, env);
+	//mlx_key_hook(env->window, key_handler, env);
 	mlx_hook(env->window, 17, 0, close_win, env);
 	mlx_hook(env->window, 4, 0, mouse_handler, env);
 	mlx_hook(env->window, 2, 1L << 0, key_handler, env);
@@ -11,7 +11,10 @@ void	h_management(t_env *env)
 int	key_handler(int key, t_env *env)
 {
 	if (key == 65307)
+	{
 		close_win(env);
+		printf("hola");
+	}
 	else if (key == 13 || key == 97)
 		env->translation -= TRANS_X;
 	else if (key == 1 || key == 100)

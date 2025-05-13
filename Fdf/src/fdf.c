@@ -10,10 +10,10 @@ int	main(int argc, char **argv)
 {
 	t_env	env;
 
-	env.alpha = 7.37;
+	env.alpha = 7.76;
 	env.translation = 1;
-	env.scale = 30;
-	env.altitude = 1;
+	env.scale = 40;
+	env.altitude = 0.1;
 	env.y = 0;
 	env.map_h = 0;
 	env.map_w = 0;
