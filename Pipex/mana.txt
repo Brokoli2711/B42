@@ -1,0 +1,2 @@
+Ejecutando: /usr/bin/cat
+Ejecutando: /usr/bin/sleep
