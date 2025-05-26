@@ -144,7 +144,7 @@ int	main(int argc, char **argv, char **envp)
 	close(pipefd[1]);
 	close(fdin);
 	close(fdout);
-
+//waitpid epera a que la fork haya acabado antes de acabar el programa.
 	waitpid(pid1, NULL, 0);
 	waitpid(pid2, NULL, 0);
 	free(pipefd);
