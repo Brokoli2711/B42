@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:43:57 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/27 13:22:36 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/27 13:53:11 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int		ft_print_unsigned_int(int c);
 //Printf utils
 int		len_hex(unsigned long long iptr);
 int		point_to_hex(unsigned long long iptr);
-int		num_to_hex(unsigned int	 num);
+int		num_to_hex(unsigned int num);
 
 //Get_next_line
 char	*get_next_line(int fd);

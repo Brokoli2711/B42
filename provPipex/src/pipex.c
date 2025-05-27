@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/27 13:33:44 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:12:31 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,20 +83,20 @@ int	main(int argc, char **argv, char **envp)
 	pipefd = malloc(sizeof(int) * 2);
 	pid = malloc(sizeof(pid_t) * 2);
 	if (!pipefd || argc != 5)
-		return (free(pipefd), 0);
+		return (free(pipefd), free(pid), 1);
 	if (!pid)
-		return (free(pid), 0);
+		return (free(pid), free(pipefd), 1);
 	fdin = open(argv[1], O_RDONLY);
 	fdout = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (show_errors(pipefd, fdin, fdout, argv) != 0)
-		return (0);
+		return (free(pid), 1);
 	pid[0] = fork();
 	if (pid[0] == 0)
 		child1(pipefd, fdin, argv[2], envp);
 	fork_error(pid, 0, pipefd);
 	pid[1] = fork();
 	if (pid[1] == 0)
-		child2(pipefd, fdin, argv[3], envp);
+		child2(pipefd, fdout, argv[3], envp);
 	fork_error(pid, 1, pipefd);
 	return (close_and_wait(pipefd, pid, fdin, fdout), 0);
 }

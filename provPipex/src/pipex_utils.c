@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 14:05:56 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/27 13:36:28 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:10:42 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*get_command_path(char *cmd, char **envp)
 	{
 		full_path = malloc(ft_strlen(paths[i]) + ft_strlen(cmd) + 2);
 		if (!full_path)
-			return (NULL);
+			return (ft_free_split(paths), NULL);
 		write_all_path(full_path, paths[i], cmd);
 		if (access(full_path, X_OK) == 0)
 			return (ft_free_split(paths), full_path);
@@ -78,15 +78,15 @@ int	show_errors(int *pipefd, int fdin, int fdout, char **argv)
 {
 	if (fdin == -1)
 		printf("%s: %s\n", argv[1], strerror(errno));
-	else if (access(argv[1], R_OK) == 0)
-		printf("%s is accessable in read mode\n", argv[1]);
+//	else if (access(argv[1], R_OK) == 0)
+//		printf("%s is accessable in read mode\n", argv[1]);
 	if (fdout == -1)
 	{
 		free(pipefd);
 		return (perror("failed to open outfile"), 1);
 	}
-	else if (access(argv[4], W_OK) == 0)
-		printf("%s is accessable in write mode\n", argv[4]);
+//	else if (access(argv[4], W_OK) == 0)
+//		printf("%s is accessable in write mode\n", argv[4]);
 	if (pipe(pipefd) == -1)
 	{
 		free(pipefd);
