@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:43:57 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/16 13:14:51 by elfo             ###   ########.fr       */
+/*   Updated: 2025/05/27 13:22:36 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdint.h>
 # include <stdarg.h>
 # ifndef BUFFER_SIZE
-#	define BUFFER_SIZE 1
+#  define BUFFER_SIZE 1
 # endif
 
 typedef struct s_list
@@ -86,7 +86,14 @@ int		ft_print_mayorhex_num(unsigned int num);
 int		ft_print_percent(void);
 int		ft_print_string(char *str);
 int		ft_print_unsigned_int(int c);
+//Printf utils
+int		len_hex(unsigned long long iptr);
+int		point_to_hex(unsigned long long iptr);
+int		num_to_hex(unsigned int	 num);
 
 //Get_next_line
 char	*get_next_line(int fd);
+//frees Get_next_line
+char	*ft_free_strjoin(char *sline, char *tmp);
+char	*free_sline(char *sline);
 #endif

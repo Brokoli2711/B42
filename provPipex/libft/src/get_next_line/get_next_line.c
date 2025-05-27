@@ -6,27 +6,11 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:49:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/03/25 11:13:24 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/27 13:22:36 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <limits.h>
-
-static char	*ft_free_strjoin(char *sline, char *temp)
-{
-	char	*new;
-
-	new = ft_strjoin(sline, temp);
-	free(sline);
-	return (new);
-}
-
-static char	*free_sline(char *sline)
-{
-	free(sline);
-	return (NULL);
-}
+#include "../../includes/libft.h"
 
 static char	*make_rest(char *sline)
 {
