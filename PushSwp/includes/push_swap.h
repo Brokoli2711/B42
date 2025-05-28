@@ -6,7 +6,7 @@
 /*   By: elfo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:17:15 by elfo              #+#    #+#             */
-/*   Updated: 2025/05/28 13:55:34 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/28 21:31:18 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }			t_stack_node;
 
-//***Handle errors
+//Handle errors
 int				error_syntax(char *str_n);
 int				error_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
 
-//***Stack initiation
+//Stack initiation
 void			init_stack_a(t_stack_node **a, char **argv);
 char			**split(char *s, char c);
 
-//***Nodes initiation
+//Nodes initiation
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
 void			init_nodes_b(t_stack_node *a, t_stack_node *b);
 void			current_index(t_stack_node *stack);
@@ -47,14 +47,14 @@ void			set_cheapest(t_stack_node *stack);
 t_stack_node	*get_cheapest(t_stack_node *stack);
 void			prep_for_push(t_stack_node **s, t_stack_node *n, char c);
 
-//***Stack utils
+//Stack utils
 int				stack_len(t_stack_node *stack);
 t_stack_node	*find_last(t_stack_node *stack);
 bool			stack_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
 
-//***Commands
+//Commands
 void			sa(t_stack_node **a, bool print);
 void			sb(t_stack_node **b, bool print);
 void			ss(t_stack_node **a, t_stack_node **b, bool print);
@@ -67,8 +67,21 @@ void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 void			pa(t_stack_node **a, t_stack_node **b, bool print);
 void			pb(t_stack_node **b, t_stack_node **a, bool print);
 
-//***Algorithm
+//Algorithm
 void			sort_three(t_stack_node **a);
 void			sort_stacks(t_stack_node **a, t_stack_node **b);
+//Algorithm utils
+void			rotate_both(t_stack_node **a, t_stack_node **b,
+					t_stack_node *cheapest_node);
+void			rev_rotate_both(t_stack_node **a, t_stack_node **b,
+					t_stack_node *cheapest_node);
+void			move_a_to_b(t_stack_node **a, t_stack_node **b);
+void			move_b_to_a(t_stack_node **a, t_stack_node **b);
+void			min_on_top(t_stack_node **a);
+
+//Utils
+void			cost_analysis_a(t_stack_node *a, t_stack_node *b);
+void			set_target_a(t_stack_node *a, t_stack_node *b);
+void			set_target_b(t_stack_node *a, t_stack_node *b);
 
 #endif

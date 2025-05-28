@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:00:17 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/28 14:00:21 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:57:33 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static long	ft_atol(const char *s)
 
 	result = 0;
 	sign = 1;
-	while (*s == ' ' || *s == '\t' || *s == '\n' || \
-			*s == '\r' || *s == '\f' || *s == '\v')
+	while (*s == ' ' || *s == '\t' || *s == '\n'
+		|| *s == '\r' || *s == '\f' || *s == '\v')
 		s++;
 	if (*s == '-' || *s == '+')
 	{
@@ -80,7 +80,8 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	}
 }
 
-void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
+void	prep_for_push(t_stack_node **stack, t_stack_node *top_node,
+		char stack_name)
 {
 	while (*stack != top_node)
 	{

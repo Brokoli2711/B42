@@ -6,23 +6,13 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:17:23 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/28 14:20:59 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/28 21:49:34 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	rotate_both(t_stack_node **a, t_stack_node **b,
-			t_stack_node *cheapest_node)
-{
-	while (*b != cheapest_node->target_node
-		&& *a != cheapest_node)
-		rr(a, b, false);
-	current_index(*a);
-	current_index(*b);
-}
-
-static void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
+void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
 			t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node->target_node
@@ -32,7 +22,7 @@ static void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
 	current_index(*b);
 }
 
-static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
+void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*cheapest_node;
 
@@ -40,20 +30,20 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
 	else if (!(cheapest_node->above_median)
-			&& !(cheapest_node->target_node->above_median))
+		&& !(cheapest_node->target_node->above_median))
 		rev_rotate_both(a, b, cheapest_node);
 	prep_for_push(a, cheapest_node, 'a');
 	prep_for_push(b, cheapest_node->target_node, 'b');
 	pb(b, a, false);
 }
 
-static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
+void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
 	prep_for_push(a, (*b)->target_node, 'a');
 	pa(a, b, false);
 }
 
-static void	min_on_top(t_stack_node **a)
+void	min_on_top(t_stack_node **a)
 {
 	while ((*a)->value != find_min(*a)->value)
 	{
@@ -62,54 +52,4 @@ static void	min_on_top(t_stack_node **a)
 		else
 			rra(a, false);
 	}
-}
-
-bool	stack_sorted(t_stack_node *stack)
-{
-	if (!stack)
-		return (-1);
-	while (stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (false);
-		stack = stack->next;
-	}
-	return (true);
-}
-
-void	sort_three(t_stack_node **a)
-{
-	t_stack_node	*big_node;
-
-	big_node = find_max(*a);
-	if (big_node == *a)
-		ra(a, false);
-	else if ((*a)->next == big_node)
-		rra(a, false);
-	if ((*a)->value > (*a)->next->value)
-		sa(a, false);
-}
-
-void	sort_stacks(t_stack_node **a, t_stack_node **b)
-{
-	int	len_a;
-
-	len_a = stack_len(*a);
-	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
-	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
-	while (len_a-- > 3 && !stack_sorted(*a))
-	{
-		init_nodes_a(*a, *b);
-		move_a_to_b(a, b);
-	}
-	sort_three(a);
-	while (*b)
-	{
-		init_nodes_b(*a, *b);
-		move_b_to_a(a, b);
-	}
-	current_index(*a);
-	min_on_top(a);
 }

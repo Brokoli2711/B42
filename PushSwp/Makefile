@@ -8,7 +8,10 @@ RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Werror -MMD -MP
 
-SRC = $(wildcard $(SRC_DIR)/*.c)
+SRC = $(SRC_DIR)/errors.c $(SRC_DIR)/find_nodes.c $(SRC_DIR)/init_nodes.c $(SRC_DIR)/init_stack.c \
+	$(SRC_DIR)/push_operation.c $(SRC_DIR)/push_swap.c $(SRC_DIR)/push_swap_utils.c \
+	$(SRC_DIR)/reverse_rotate_operation.c $(SRC_DIR)/rotate_operation.c $(SRC_DIR)/sort.c \
+	$(SRC_DIR)/sort_utils.c $(SRC_DIR)/split.c $(SRC_DIR)/swap_operation.c
 OBJECTS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 DEPS = $(OBJECTS:.o=.d)
 
