@@ -6,11 +6,11 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:18:16 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 11:41:25 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/05 14:25:00 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 int	ft_atoi(const char *str)
 {

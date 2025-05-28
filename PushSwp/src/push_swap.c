@@ -6,7 +6,7 @@
 /*   By: elfo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:26:54 by elfo              #+#    #+#             */
-/*   Updated: 2025/04/11 12:46:07 by elfo             ###   ########.fr       */
+/*   Updated: 2025/05/28 14:00:52 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,6 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&a, &b);
 	}
-	/*while (b->value)
-	{
-		ft_printf("%d", b->value);
-		if (!b->next)
-			break ;
-		else
-			b = b->next;
-	}*/
 	free_stack(&a);
 	return (0);
 }

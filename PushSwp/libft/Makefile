@@ -6,13 +6,13 @@
 #    By: elfo <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 11:40:01 by elfo              #+#    #+#              #
-#    Updated: 2025/03/25 11:19:42 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/05/26 14:12:42 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIC
 AR = ar -rv
 RM = rm -rf
 SRC_DIR = src

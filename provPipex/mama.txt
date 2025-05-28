@@ -1,2 +1,0 @@
-Executing: /usr/bin/wc
-9

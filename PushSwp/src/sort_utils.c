@@ -1,36 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/28 14:17:23 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/05/28 14:20:59 by egelma-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-static void	rotate_both(t_stack_node **a,
-						t_stack_node **b,
-						t_stack_node *cheapest_node) //Define a function that rotates both the top `a` and `b` nodes to the bottom of their stacks, if it's the cheapest move
+static void	rotate_both(t_stack_node **a, t_stack_node **b,
+			t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node->target_node
-		&& *a != cheapest_node) //As long as the current `b` node is not `a` cheapest node's target node, and the current top `a` node is not the top node
-		rr(a, b, false); //Rotate both `a` and `b` nodes
+		&& *a != cheapest_node)
+		rr(a, b, false);
 	current_index(*a);
 	current_index(*b);
 }
 
-static void	rev_rotate_both(t_stack_node **a,
-								t_stack_node **b,
-								t_stack_node *cheapest_node) //Define a function that rotates both the bottom `a` and `b` nodes to the top of their stacks, if it's the cheapest move
+static void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
+			t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node->target_node
-		&& *a != cheapest_node) //As long as the current `b` node is not `a` cheapest node's target node && and the current `a` node is not the cheapest
-		rrr(a, b, false); //Reverse rotate both `a` and `b` nodes
-	current_index(*a); //Refresh current node positions
+		&& *a != cheapest_node)
+		rrr(a, b, false);
+	current_index(*a);
 	current_index(*b);
 }
 
 static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node *cheapest_node;
+	t_stack_node	*cheapest_node;
 
 	cheapest_node = get_cheapest(*a);
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
-	else if (!(cheapest_node->above_median) && !(cheapest_node->target_node->above_median))
-			rev_rotate_both(a, b, cheapest_node);
+	else if (!(cheapest_node->above_median)
+			&& !(cheapest_node->target_node->above_median))
+		rev_rotate_both(a, b, cheapest_node);
 	prep_for_push(a, cheapest_node, 'a');
 	prep_for_push(b, cheapest_node->target_node, 'b');
 	pb(b, a, false);
@@ -75,7 +86,7 @@ void	sort_three(t_stack_node **a)
 		ra(a, false);
 	else if ((*a)->next == big_node)
 		rra(a, false);
-	if((*a)->value > (*a)->next->value)
+	if ((*a)->value > (*a)->next->value)
 		sa(a, false);
 }
 

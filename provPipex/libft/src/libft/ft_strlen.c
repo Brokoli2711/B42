@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:29:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/02 13:53:16 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/28 11:39:03 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strlen(const char *str)
 	int	len;
 
 	len = 0;
+	if (!str)
+		return (0);
 	while (str[len] != '\0')
 		len++;
 	return (len);

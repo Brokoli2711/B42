@@ -1,9 +1,10 @@
 #include "../includes/push_swap.h"
 #include <limits.h>
 
-void current_index(t_stack_node *stack) {
-  int i;
-  int median;
+void  current_index(t_stack_node *stack)
+{
+  int	i;
+  int	median;
 
   i = 0;
   if (!stack)

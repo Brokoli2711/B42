@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/27 12:29:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/28 11:39:03 by egelma-b         ###   ########.fr       */
+/*   Created: 2025/05/27 13:18:45 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/05/27 13:22:36 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
-int	ft_strlen(const char *str)
+char	*ft_free_strjoin(char *sline, char *temp)
 {
-	int	len;
+	char	*new;
 
-	len = 0;
-	if (!str)
-		return (0);
-	while (str[len] != '\0')
-		len++;
-	return (len);
+	new = ft_strjoin(sline, temp);
+	free(sline);
+	return (new);
+}
+
+char	*free_sline(char *sline)
+{
+	free(sline);
+	return (NULL);
 }
