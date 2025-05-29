@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 12:58:01 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/28 12:33:42 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/29 11:55:03 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ char	*get_command_path(char *cmd, char **envp);
 void	exec_command(char *command, char **envp);
 int		show_errors(int *pipefd, int fdin, int fdout, char **argv);
 void	close_and_wait(int *pipefd, pid_t *pid, int fdin, int fdout);
+char	**pipex_split(const char *str);
 
 #endif

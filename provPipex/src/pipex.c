@@ -6,14 +6,11 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:59:50 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/28 13:29:48 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/29 13:02:17 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include <unistd.h>
 
 void	exec_command(char *command, char **envp)
@@ -21,7 +18,7 @@ void	exec_command(char *command, char **envp)
 	char	**args;
 	char	*full_path;
 
-	args = ft_split(command, ' ');
+	args = pipex_split((const char *)command);
 	if (!args)
 	{
 		ft_free_split(args);
@@ -31,18 +28,18 @@ void	exec_command(char *command, char **envp)
 	if (!full_path)
 	{
 		perror("command not found");
+		close(STDOUT_FILENO);
 		ft_free_split(args);
-		exit(1);
+		exit(127);
 	}
 	printf("Executing: %s\n", full_path);
 	if (execve(full_path, args, envp) == -1)
 	{
-		free (full_path);
+		free(full_path);
 		exit (1);
 	}
 	free(full_path);
 	ft_free_split(args);
-	exit(0);
 }
 
 static void	child1(int *pipefd, int fdin, char *command, char **envp)
@@ -61,6 +58,7 @@ static void	child1(int *pipefd, int fdin, char *command, char **envp)
 	}
 	close(pipefd[0]);
 	close(pipefd[1]);
+	printf("%s\n", command);
 	if (fdin != -1)
 		close(fdin);
 	exec_command(command, envp);
@@ -82,6 +80,7 @@ static void	child2(int *pipefd, int fdout, char *command, char **envp)
 	close(pipefd[0]);
 	close(pipefd[1]);
 	close(fdout);
+	printf("%s\n", command);
 	exec_command(command, envp);
 }
 

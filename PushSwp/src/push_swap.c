@@ -6,24 +6,33 @@
 /*   By: elfo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:26:54 by elfo              #+#    #+#             */
-/*   Updated: 2025/05/28 14:00:52 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/29 13:45:47 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+static void	check_split(char **splited, char **argv)
+{
+	if (splited != argv + 1)
+		ft_free_split(splited);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	char			**splited;
 
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		argv = split(*(argv + 1), ' ');
-	init_stack_a(&a, argv + 1);
+		splited = split(*(argv + 1), ' ');
+	else
+		splited = argv + 1;
+	init_stack_a(&a, splited + 1);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
@@ -34,5 +43,6 @@ int	main(int argc, char **argv)
 			sort_stacks(&a, &b);
 	}
 	free_stack(&a);
+	check_split(splited, argv);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: elfo <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 11:40:01 by elfo              #+#    #+#              #
-#    Updated: 2025/05/28 23:10:11 by elfo             ###   ########.fr        #
+#    Updated: 2025/05/29 12:01:10 by egelma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,8 +53,9 @@ $(SRC_DIR)/$(LIBFT_DIR)/ft_putnbr_fd.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_putstr_fd.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_split.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_strchr.c \
-$(SRC_DIR)/$(LIBFT_DIR)/ft_strdup.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_striteri.c \
+$(SRC_DIR)/$(LIBFT_DIR)/ft_strdup.c \
+$(SRC_DIR)/$(LIBFT_DIR)/ft_strndup.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_strjoin.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_strlcat.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_strlcpy.c \

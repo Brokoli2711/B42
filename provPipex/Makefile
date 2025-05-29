@@ -8,7 +8,7 @@ RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Werror -MMD -MP
 
-SRC = $(SRC_DIR)/pipex.c $(SRC_DIR)/pipex_utils.c 
+SRC = $(SRC_DIR)/pipex.c $(SRC_DIR)/pipex_utils.c $(SRC_DIR)/pipex_split.c 
 OBJECTS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 DEPS = $(OBJECTS:.o=.d)
 

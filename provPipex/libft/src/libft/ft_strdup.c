@@ -6,11 +6,11 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:28:14 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/01/07 17:50:01 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/05/29 11:48:42 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 char	*ft_strdup(const char *str)
 {
