@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   points.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/02 12:39:41 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/06/02 12:40:52 by egelma-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 void	fill_3d_points(t_env *env)
@@ -14,7 +26,8 @@ void	fill_3d_points(t_env *env)
 		env->x = 0;
 		while (env->x < env->map_w)
 		{
-			env->initial_points[i] = (t_ipoint){env->x, env->y, env->final_tab[env->y][env->x]};
+			env->initial_points[i] = (t_ipoint){env->x, env->y,
+				env->final_tab[env->y][env->x]};
 			i++;
 			env->x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:43:57 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/04/28 21:25:39 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/02 16:38:27 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdint.h>
 # include <stdarg.h>
 # ifndef BUFFER_SIZE
-#	define BUFFER_SIZE 1
+#  define BUFFER_SIZE 1
 # endif
 
 typedef struct s_list
@@ -64,6 +64,7 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(const char *src, const char	*str, size_t n);
 char	*ft_strdup(const char *str);
+char	*ft_strndup(const char *str, size_t n);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
@@ -71,6 +72,7 @@ char	*ft_itoa(int n);
 char	*ft_uitoa(unsigned int n);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	**ft_split(const char *s, char c);
+void	ft_free_split(char **ptr);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
@@ -85,7 +87,14 @@ int		ft_print_mayorhex_num(unsigned int num);
 int		ft_print_percent(void);
 int		ft_print_string(char *str);
 int		ft_print_unsigned_int(int c);
+//Printf utils
+int		len_hex(unsigned long long iptr);
+int		point_to_hex(unsigned long long iptr);
+int		num_to_hex(unsigned int num);
 
 //Get_next_line
 char	*get_next_line(int fd);
+//frees Get_next_line
+char	*ft_free_strjoin(char *sline, char *tmp);
+char	*free_sline(char *sline);
 #endif

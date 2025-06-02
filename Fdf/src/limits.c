@@ -1,29 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   limits.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/02 12:42:56 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/06/02 18:17:40 by egelma-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 #include <stdlib.h>
 
-void	limits(t_env *env)
+static void	set_right_limit(t_env *env)
 {
-	env->actual_y = 1;
-	env->i = 0;
-//	ft_printf("MAP_H: %d",env->map_h);
-//	ft_printf("MAP_W: %d",env->map_w);
-	while (env->actual_y != env->map_h)
-	{
-		env->actual_x = 1;
-		while (env->actual_x < env->map_w)
-		{
-			no_limit(env);
-			env->i++;
-			env->actual_x++;
-		}
-		if (env->actual_x == env->map_w)
-		{
-			down_limit(env);
-			env->actual_x++;
-			env->i++;
-		}
-		env->actual_y++;
-	}
 	env->actual_x = 1;
 	if (env->actual_y == env->map_h)
 	{
@@ -34,6 +25,30 @@ void	limits(t_env *env)
 			env->i++;
 		}
 	}
+}
+
+void	limits(t_env *env)
+{
+	env->actual_y = 1;
+	env->i = 0;
+	while (env->actual_y != env->map_h)
+	{
+		env->actual_x = 1;
+		while (env->actual_x < env->map_w)
+		{
+			no_limit(env);
+			env->actual_x++;
+			env->i++;
+		}
+		if (env->actual_x == env->map_w)
+		{
+			down_limit(env);
+			env->actual_x++;
+			env->i++;
+		}
+		env->actual_y++;
+	}
+	set_right_limit(env);
 	free(env->final_points);
 }
 
@@ -49,6 +64,7 @@ void	right_limit(t_env *env)
 	float	x1;
 	float	y0;
 	float	y1;
+
 	x0 = env->final_points[env->i].x;
 	y0 = env->final_points[env->i].y;
 	x1 = env->final_points[env->i + 1].x;

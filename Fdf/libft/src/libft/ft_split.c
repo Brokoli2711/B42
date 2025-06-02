@@ -6,13 +6,13 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 10:26:46 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/05/05 14:25:30 by elfo             ###   ########.fr       */
+/*   Updated: 2025/05/16 13:14:51 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-static void	ft_free_split(char	**ptr)
+void	ft_free_split(char **ptr)
 {
 	size_t	i;
 

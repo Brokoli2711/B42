@@ -1,62 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   start.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/02 12:40:24 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/06/02 17:28:56 by egelma-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 #include <stdio.h>
 #include <unistd.h>
 
-void	map_info(t_env *env, char *file)
+void	set_and_free_final_tab(t_env *env, char **line_tab)
 {
-	int		fd;
-	char	*line;
-	char	**tab;
-
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		error("Error of the map");
-	line = get_next_line(fd);
-	if(!line)
-		error("Empty map");
-	tab = ft_split(line, ' ');
-	while (tab[env->map_w])
-	{
-		free(tab[env->map_w]);
-		env->map_w++;
-	}
-	while (line)
-	{
-		free(line);
-		env->map_h++;
-		line = get_next_line(fd);
-	}
-	free(line);
-	free(tab);
-	close(fd);
-}
-
-void	check_format(t_env *env, char *file)
-{
-	int		fd;
-	char	*line;
-	char	**tab;
-	int		x;
-
-	fd = open(file, O_RDONLY);
-	line = get_next_line(fd);
-	while (line)
-	{
-		tab = ft_split(line, ' ');
-		free(line);
-		x = 0;
-		while (tab[x])
-		{
-			free(tab[x]);
-			x++;
-		}
-		free(tab);
-		if (x < env->map_w || x > env->map_w)
-			error("Wrong map format");
-		line = get_next_line(fd);
-	}
-	free(line);
-	close(fd);
+	env->final_tab[env->y][env->x] = ft_atoi(line_tab[env->x]);
+	free(line_tab[env->x]);
 }
 
 void	parse_map(t_env *env, char *file)
@@ -79,10 +40,7 @@ void	parse_map(t_env *env, char *file)
 		free(line);
 		env->x = -1;
 		while (++env->x < env->map_w)
-		{
-			env->final_tab[env->y][env->x] = ft_atoi(line_tab[env->x]);
-			free(line_tab[env->x]);
-		}
+			set_and_free_final_tab(env, line_tab);
 		env->y++;
 		free(line_tab);
 	}
@@ -101,7 +59,8 @@ int	env_init(t_env *env)
 	if (env->window == NULL)
 		return (MLX_ERROR);
 	env->img = mlx_new_image(env->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	env->addr = mlx_get_data_addr(env->img, &env->bits_per_pixel, &env->line_length, &env->endian);
+	env->addr = mlx_get_data_addr(env->img, &env->bits_per_pixel,
+			&env->line_length, &env->endian);
 	fill_2d_points(env);
 	limits(env);
 	h_management(env);

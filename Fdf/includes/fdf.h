@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/02 12:36:36 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/06/02 12:36:43 by egelma-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 # include "../mlx_linux/mlx.h"
@@ -65,15 +77,15 @@ typedef struct s_env
 }	t_env;
 
 //FDF.C
-int	error(char *message);
+int		error(char *message);
 void	free_final_tab(t_env *env);
 
 //START.C
 void	map_info(t_env *env, char *file);
 void	check_format(t_env *env, char *file);
 void	parse_map(t_env *env, char *file);
-int	env_init(t_env *env);
-int	render(t_env *env);
+int		env_init(t_env *env);
+int		render(t_env *env);
 
 //POINTS.C
 void	fill_2d_points(t_env *env);
@@ -92,7 +104,7 @@ void	draw_background(t_env *env);
 
 //HOOKS.C
 void	h_management(t_env *env);
-int	key_handler(int key, t_env *env);
-int	close_win(t_env *env);
-int	mouse_handler(int mousecode, int x, int y, t_env *env);
+int		key_handler(int key, t_env *env);
+int		close_win(t_env *env);
+int		mouse_handler(int mousecode, int x, int y, t_env *env);
 #endif

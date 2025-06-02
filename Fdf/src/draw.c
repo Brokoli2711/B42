@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/02 12:37:20 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/06/02 12:42:31 by egelma-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 void	put_pixel(t_env *env, int x, int y, int color)
 {
 	char	*pixel;
 
-	if(x >= 0 && x < WINDOW_WIDTH && y >= 0 && y < WINDOW_HEIGHT)
+	if (x >= 0 && x < WINDOW_WIDTH && y >= 0 && y < WINDOW_HEIGHT)
 	{
 		pixel = env->addr + (y * env->line_length + \
-		       x * (env->bits_per_pixel / 8));
+			x * (env->bits_per_pixel / 8));
 		*(unsigned int *)pixel = color;
 	}
 }
@@ -31,15 +43,12 @@ void	draw_line(t_env *env, t_fpoint point0, t_fpoint point1)
 	delta.dy = delta.dy / step;
 	x = point0.x;
 	y = point0.y;
-	while (i < step)
+	while (i++ < step)
 	{
-		put_pixel(env,
-			roundf(env->translation - x + WINDOW_WIDTH / 2.0f),
-			roundf(env->translation - y + WINDOW_HEIGHT / 2.0f),
-			RED);
+		put_pixel(env, roundf(env->translation - x + WINDOW_WIDTH / 2.0f),
+			roundf(env->translation - y + WINDOW_HEIGHT / 2.0f), RED);
 		x += delta.dx;
 		y += delta.dy;
-		i++;
 	}
 }
 

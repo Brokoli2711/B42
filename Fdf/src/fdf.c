@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/02 12:37:54 by egelma-b          #+#    #+#             */
+/*   Updated: 2025/06/02 12:40:52 by egelma-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 int	error(char *message)
@@ -18,7 +30,6 @@ int	main(int argc, char **argv)
 	env.map_h = 0;
 	env.map_w = 0;
 	env.path_map = argv[1];
-
 	if (argc == 2)
 	{
 		map_info(&env, env.path_map);
