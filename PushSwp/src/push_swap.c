@@ -6,7 +6,7 @@
 /*   By: elfo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:26:54 by elfo              #+#    #+#             */
-/*   Updated: 2025/05/29 13:45:47 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/02 19:12:06 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@ static void	check_split(char **splited, char **argv)
 {
 	if (splited != argv + 1)
 		ft_free_split(splited);
+}
+
+static void	sort(t_stack_node *a, t_stack_node *b)
+{
+	if (!stack_sorted(a))
+	{
+		if (stack_len(a) == 2)
+			sa(&a, false);
+		else if (stack_len(a) == 3)
+			sort_three(&a);
+		else
+			sort_stacks(&a, &b);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -29,19 +42,16 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		splited = split(*(argv + 1), ' ');
-	else
-		splited = argv + 1;
-	init_stack_a(&a, splited + 1);
-	if (!stack_sorted(a))
 	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		splited = split(*(argv + 1), ' ');
+		init_stack_a(&a, splited + 1);
 	}
+	else
+	{
+		splited = argv + 1;
+		init_stack_a(&a, splited);
+	}
+	sort(a, b);
 	free_stack(&a);
 	check_split(splited, argv);
 	return (0);
