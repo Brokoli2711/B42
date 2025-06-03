@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:00:17 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/02 19:08:59 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/03 14:26:54 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ static void	add_node(t_stack_node **stack, int n)
 		return ;
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
-		return ;
+	{
+		free_stack(stack);
+		exit(1);
+	}
 	node->next = NULL;
 	node->value = n;
 	node->cheapest = 0;
@@ -60,7 +63,7 @@ static void	add_node(t_stack_node **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv, bool split)
 {
 	long	n;
 	int		i;
@@ -69,7 +72,11 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
+		{
+			if (argv && split)
+				ft_free_split(argv - 1);
 			free_errors(a);
+		}
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);

@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 13:57:02 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/02 19:02:47 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/03 14:25:25 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ int	error_syntax(char *str_n)
 	while (*++str_n)
 	{
 		if (!(*str_n >= '0' && *str_n <= '9'))
-		{
-			printf("Hola");
 			return (1);
-		}
 	}
 	return (0);
 }
@@ -51,7 +48,7 @@ void	free_stack(t_stack_node **stack)
 	t_stack_node	*tmp;
 	t_stack_node	*current;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
 	current = *stack;
 	while (current)

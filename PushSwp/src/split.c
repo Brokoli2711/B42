@@ -6,7 +6,7 @@
 /*   By: elfo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:53:00 by elfo              #+#    #+#             */
-/*   Updated: 2025/05/28 18:58:07 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/03 14:00:19 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ char	**split(char *s, char c)
 		{
 			result_array[i] = malloc(sizeof(char));
 			if (!result_array[i])
+			{
+				free(result_array);
 				return (NULL);
+			}
 			result_array[i++][0] = '\0';
 			continue ;
 		}

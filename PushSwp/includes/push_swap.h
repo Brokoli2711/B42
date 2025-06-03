@@ -6,7 +6,7 @@
 /*   By: elfo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:17:15 by elfo              #+#    #+#             */
-/*   Updated: 2025/05/28 21:31:18 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/03 14:04:56 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
 
 //Stack initiation
-void			init_stack_a(t_stack_node **a, char **argv);
+void			init_stack_a(t_stack_node **a, char **argv, bool split);
 char			**split(char *s, char c);
 
 //Nodes initiation
