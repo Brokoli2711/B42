@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:43:57 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/02 16:38:27 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:12:51 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <string.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -41,6 +42,7 @@ int		ft_tolower(int c);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 int		ft_memcmp(const void *str1, const void *str2, size_t n);
 int		ft_atoi(const char *str);
+int		ft_atoi_base(const char *str, int base);
 int		ft_lstsize(t_list *lst);
 void	ft_bzero(void *s, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -94,7 +96,14 @@ int		num_to_hex(unsigned int num);
 
 //Get_next_line
 char	*get_next_line(int fd);
+void	end_node(t_list **list, t_list *last_node, int i);
+int		make_list(t_list **list, int fd);
+void	add_node(t_list **list, char *str);
+//Get_next_line_utils
+t_list	*find_last_node(t_list *list);
+bool	check_newline(t_list **list);
+char	*extract_line(t_list *head);
 //frees Get_next_line
 char	*ft_free_strjoin(char *sline, char *tmp);
-char	*free_sline(char *sline);
+void	free_list(t_list **list);
 #endif

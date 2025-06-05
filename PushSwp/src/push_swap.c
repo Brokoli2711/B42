@@ -6,7 +6,7 @@
 /*   By: elfo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:26:54 by elfo              #+#    #+#             */
-/*   Updated: 2025/06/03 14:28:49 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/04 14:11:21 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 	{
-		splited = split(*(argv + 1), ' ');
-		init_stack_a(&a, splited + 1, true);
+		splited = split(*(&argv[1]), ' ');
+		init_stack_a(&a, &splited[1], true);
 	}
 	else
 	{
-		splited = argv + 1;
+		splited = &argv[1];
 		init_stack_a(&a, splited, false);
 	}
 	sort(a, b);

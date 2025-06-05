@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:38:31 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/02 16:39:14 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/04 17:49:13 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,28 @@ int	key_handler(int key, t_env *env)
 		env->altitude += ALTITUDE;
 	else if (key == 65364)
 		env->altitude -= ALTITUDE;
+	else if (key == 4)
+		env->scale *= ZOOM_FACTOR;
+	else if (key == 5)
+		env->scale *= ZOOM_FACTOR;
 	return (0);
 }
 
 int	close_win(t_env *env)
 {
-	mlx_destroy_window(env->mlx, env->window);
+	if (!env)
+		exit (0);
+	if (env->initial_points)
+		free(env->initial_points);
+	if (env->img)
+		mlx_destroy_image(env->mlx, env->img);
+	if (env->window)
+		mlx_destroy_window(env->mlx, env->window);
+	if (env->mlx)
+	{
+		mlx_destroy_display(env->mlx);
+		free(env->mlx);
+	}
 	exit (0);
 }
 

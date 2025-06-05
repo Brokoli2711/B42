@@ -6,7 +6,7 @@
 #    By: elfo <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 11:40:01 by elfo              #+#    #+#              #
-#    Updated: 2025/05/29 12:01:10 by egelma-b         ###   ########.fr        #
+#    Updated: 2025/06/04 16:13:43 by elfo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ GETNL_DIR = get_next_line
 
 SRC_LIBFT = \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_atoi.c \
+$(SRC_DIR)/$(LIBFT_DIR)/ft_atoi_base.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_bzero.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_calloc.c \
 $(SRC_DIR)/$(LIBFT_DIR)/ft_isalnum.c \
@@ -77,7 +78,7 @@ $(SRC_DIR)/$(PRINTF_DIR)/ft_printf_utils.c \
 $(SRC_DIR)/$(PRINTF_DIR)/print_hex.c
 
 SRC_GETNL = \
-$(SRC_DIR)/$(GETNL_DIR)/free.c \
+$(SRC_DIR)/$(GETNL_DIR)/get_next_line_utils.c \
 $(SRC_DIR)/$(GETNL_DIR)/get_next_line.c
 
 SRC = $(SRC_LIBFT) $(SRC_PRINTF) $(SRC_GETNL)

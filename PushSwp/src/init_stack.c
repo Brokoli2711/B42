@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:00:17 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/03 14:26:54 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/03 21:41:13 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	add_node(t_stack_node **stack, int n)
 	if (!node)
 	{
 		free_stack(stack);
-		exit(1);
+		return ;
 	}
 	node->next = NULL;
 	node->value = n;

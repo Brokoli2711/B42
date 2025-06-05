@@ -6,7 +6,7 @@ INC_DIR = includes
 CC = gcc
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -MMD -MP
+CFLAGS = -Wall -Wextra -Werror -MMD -MP -g
 
 SRC = $(SRC_DIR)/errors.c $(SRC_DIR)/find_nodes.c $(SRC_DIR)/init_nodes.c $(SRC_DIR)/init_stack.c \
 	$(SRC_DIR)/push_operation.c $(SRC_DIR)/push_swap.c $(SRC_DIR)/push_swap_utils.c \

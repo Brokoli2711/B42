@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 13:57:02 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/03 14:25:25 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/04 14:42:18 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,17 @@ int	error_duplicate(t_stack_node *a, int n)
 
 void	free_stack(t_stack_node **stack)
 {
-	t_stack_node	*tmp;
+	t_stack_node	*tmp_prev;
 	t_stack_node	*current;
 
-	if (!stack || !*stack)
+	if (!stack)
 		return ;
-	current = *stack;
+	current = find_last(*stack);
 	while (current)
 	{
-		tmp = current->next;
-		current->value = 0;
+		tmp_prev = current->prev;
 		free(current);
-		current = tmp;
+		current = tmp_prev;
 	}
 	*stack = NULL;
 }

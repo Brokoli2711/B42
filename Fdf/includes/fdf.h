@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:36:36 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/02 12:36:43 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/04 17:41:11 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 # define WINDOW_WIDTH 1920
 # define WINDOW_HEIGHT 1080
 # define MLX_ERROR 1
-# define ZOOM_FACTOR 1.1
-# define TRANS_X 7
-# define TRANS_Y 2
-# define ALTITUDE 0.04
+# define ZOOM_FACTOR 0.6
+# define TRANS_X 4
+# define TRANS_Y 4
+# define ALTITUDE 0.1
 
 # define RED 0x00FF0000
 # define BLACK 0x00000000
@@ -71,6 +71,8 @@ typedef struct s_env
 	float		altitude;
 	float		zoom;
 	float		alpha;
+	float		offset_x;
+	float		offset_y;
 	t_ipoint	*initial_points;
 	t_fpoint	*final_points;
 	t_delta		*delta;
@@ -107,4 +109,7 @@ void	h_management(t_env *env);
 int		key_handler(int key, t_env *env);
 int		close_win(t_env *env);
 int		mouse_handler(int mousecode, int x, int y, t_env *env);
+
+//SCALE.C
+void	calculate_auto_scale_and_center(t_env *env);
 #endif

@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:40:24 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/02 17:28:56 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/04 17:43:47 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	env_init(t_env *env)
 	env->addr = mlx_get_data_addr(env->img, &env->bits_per_pixel,
 			&env->line_length, &env->endian);
 	fill_2d_points(env);
+	calculate_auto_scale_and_center(env);
 	limits(env);
 	h_management(env);
 	mlx_loop_hook(env->mlx, render, env);
