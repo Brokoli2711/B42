@@ -9,8 +9,7 @@ RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror -MMD -MP
 
 SRC = $(SRC_DIR)/draw.c $(SRC_DIR)/fdf.c $(SRC_DIR)/hooks.c $(SRC_DIR)/limits.c \
-      $(SRC_DIR)/points.c $(SRC_DIR)/start.c $(SRC_DIR)/map.c \
-      $(SRC_DIR)/scale.c
+      $(SRC_DIR)/points.c $(SRC_DIR)/start.c $(SRC_DIR)/map.c $(SRC_DIR)/scale.c
 OBJECTS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 DEPS = $(OBJECTS:.o=.d)
 

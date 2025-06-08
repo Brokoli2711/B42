@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:37:20 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/04 20:20:56 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/08 19:23:55 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	put_pixel(t_env *env, int x, int y, int color)
 
 	if (x >= 0 && x < WINDOW_WIDTH && y >= 0 && y < WINDOW_HEIGHT)
 	{
-		pixel = env->addr + (y * env->line_length + x
-				* (env->bits_per_pixel / 8));
+		pixel = env->addr + (y * env->line_length + \
+			x * (env->bits_per_pixel / 8));
 		*(unsigned int *)pixel = color;
 	}
 }
@@ -45,8 +45,8 @@ void	draw_line(t_env *env, t_fpoint point0, t_fpoint point1)
 	y = point0.y;
 	while (i++ < step)
 	{
-		put_pixel(env, roundf(x),
-			roundf(y), RED);
+		put_pixel(env, roundf(env->translation_x + x),
+			roundf(env->translation_y + y), RED);
 		x += delta.dx;
 		y += delta.dy;
 	}

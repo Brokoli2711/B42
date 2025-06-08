@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:38:31 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/04 17:49:13 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/08 18:49:23 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ int	key_handler(int key, t_env *env)
 		env->altitude += ALTITUDE;
 	else if (key == 65364)
 		env->altitude -= ALTITUDE;
-	else if (key == 4)
-		env->scale *= ZOOM_FACTOR;
-	else if (key == 5)
-		env->scale *= ZOOM_FACTOR;
 	return (0);
 }
 

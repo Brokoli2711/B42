@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:36:36 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/04 17:41:11 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/08 19:21:27 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ typedef struct s_env
 	int			endian;
 	int			scale;
 	int			translation;
+	int			translation_x;
+	int			translation_y;
+	bool		centered;
 	float		altitude;
 	float		zoom;
 	float		alpha;
@@ -92,6 +95,7 @@ int		render(t_env *env);
 //POINTS.C
 void	fill_2d_points(t_env *env);
 void	fill_3d_points(t_env *env);
+void	center_points(t_env *env);
 
 //LIMITS.C
 void	limits(t_env *env);
