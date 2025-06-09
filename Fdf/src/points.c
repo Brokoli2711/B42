@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:39:41 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/08 19:27:30 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/09 15:19:53 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	fill_3d_points(t_env *env)
 		}
 		env->y++;
 	}
-	free_final_tab(env);
 }
 
 void	center_points(t_env *env)

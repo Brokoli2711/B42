@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:37:54 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/08 19:21:27 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/09 15:07:49 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ void	free_final_tab(t_env *env)
 	while (y < env->map_h)
 	{
 		free(env->final_tab[y]);
+		free(env->color_tab[y]);
 		y++;
 	}
 	free(env->final_tab);
+	free(env->color_tab);
 }

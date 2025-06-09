@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:37:20 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/08 19:23:55 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/09 13:27:57 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	put_pixel(t_env *env, int x, int y, int color)
 	}
 }
 
-void	draw_line(t_env *env, t_fpoint point0, t_fpoint point1)
+void	draw_line(t_env *env, t_fpoint point0, t_fpoint point1, int color)
 {
 	float	step;
 	float	x;
@@ -46,7 +46,7 @@ void	draw_line(t_env *env, t_fpoint point0, t_fpoint point1)
 	while (i++ < step)
 	{
 		put_pixel(env, roundf(env->translation_x + x),
-			roundf(env->translation_y + y), RED);
+			roundf(env->translation_y + y), color);
 		x += delta.dx;
 		y += delta.dy;
 	}

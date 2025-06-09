@@ -6,7 +6,7 @@
 /*   By: egelma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:43:57 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/04 16:12:51 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/09 14:29:04 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <stdint.h>
 # include <stdarg.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 2097152
 # endif
 
 typedef struct s_list

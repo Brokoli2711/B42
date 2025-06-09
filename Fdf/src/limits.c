@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:42:56 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/02 18:17:40 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/09 13:31:06 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,14 @@ void	right_limit(t_env *env)
 	float	x1;
 	float	y0;
 	float	y1;
+	int		color;
 
 	x0 = env->final_points[env->i].x;
 	y0 = env->final_points[env->i].y;
 	x1 = env->final_points[env->i + 1].x;
 	y1 = env->final_points[env->i + 1].y;
-	draw_line(env, (t_fpoint){x0, y0}, (t_fpoint){x1, y1});
+	color = env->color_tab[env->i / env->map_w][env->i % env->map_w];
+	draw_line(env, (t_fpoint){x0, y0}, (t_fpoint){x1, y1}, color);
 }
 
 void	down_limit(t_env *env)
@@ -78,10 +80,12 @@ void	down_limit(t_env *env)
 	float	x1;
 	float	y0;
 	float	y1;
+	int		color;
 
 	x0 = env->final_points[env->i].x;
 	y0 = env->final_points[env->i].y;
 	x1 = env->final_points[env->i + env->map_w].x;
 	y1 = env->final_points[env->i + env->map_w].y;
-	draw_line(env, (t_fpoint){x0, y0}, (t_fpoint){x1, y1});
+	color = env->color_tab[env->i / env->map_w][env->i % env->map_w];
+	draw_line(env, (t_fpoint){x0, y0}, (t_fpoint){x1, y1}, color);
 }

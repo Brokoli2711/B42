@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:40:24 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/08 19:53:10 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/09 15:21:56 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,25 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void	set_and_free_final_tab(t_env *env, char **line_tab)
+/*void	set_and_free_final_tab(t_env *env, char **line_tab)
 {
 	env->final_tab[env->y][env->x] = ft_atoi(line_tab[env->x]);
 	free(line_tab[env->x]);
+}
+*/
+void	parse_point(int *z, int *color, char *str)
+{
+	char **split;
+
+	split =  ft_split(str, ',');
+	if(!split)
+		return ;
+	*z = ft_atoi(split[0]);
+	if (split[1])
+		*color = ft_atoi_base(split[1], 16);
+	else
+		*color = RED;
+	ft_free_split(split);
 }
 
 void	parse_map(t_env *env, char *file)
@@ -28,11 +43,13 @@ void	parse_map(t_env *env, char *file)
 
 	fd = open(file, O_RDONLY);
 	env->final_tab = malloc(env->map_h * sizeof(int *));
+	env->color_tab = malloc(env->map_h * sizeof(int *));
 	if (!env->final_tab)
 		error("Parse malloc failed");
 	while (env->y < env->map_h)
 	{
 		env->final_tab[env->y] = malloc(env->map_w * sizeof(int));
+		env->color_tab[env->y] = malloc(env->map_w * sizeof(int));
 		if (!env->final_tab[env->y])
 			error("Malloc failed");
 		line = get_next_line(fd);
@@ -40,9 +57,9 @@ void	parse_map(t_env *env, char *file)
 		free(line);
 		env->x = -1;
 		while (++env->x < env->map_w)
-			set_and_free_final_tab(env, line_tab);
+			parse_point(&env->final_tab[env->y][env->x], &env->color_tab[env->y][env->x], line_tab[env->x]);
 		env->y++;
-		free(line_tab);
+		ft_free_split(line_tab);
 	}
 	close(fd);
 }
@@ -69,6 +86,7 @@ int	env_init(t_env *env)
 	h_management(env);
 	mlx_loop_hook(env->mlx, render, env);
 	mlx_loop(env->mlx);
+	free_final_tab(env);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cochatel <cochatel@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:47:37 by cochatel          #+#    #+#             */
-/*   Updated: 2024/11/25 14:33:26 by cochatel         ###   ########.fr       */
+/*   Updated: 2025/06/09 14:46:46 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <limits.h> 
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 2097152
 # endif
 
 typedef struct s_list

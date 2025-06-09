@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:36:36 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/08 19:21:27 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/09 14:26:57 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define TRANS_X 4
 # define TRANS_Y 4
 # define ALTITUDE 0.1
+# define BUFFERSIZE 2097152
 
 # define RED 0x00FF0000
 # define BLACK 0x00000000
@@ -56,6 +57,7 @@ typedef struct s_env
 	char		*addr;
 	char		*path_map;
 	int			**final_tab;
+	int			**color_tab;
 	int			map_w;
 	int			map_h;
 	int			x;
@@ -105,7 +107,7 @@ void	down_limit(t_env *env);
 
 //DRAW.C
 void	put_pixel(t_env *env, int x, int y, int color);
-void	draw_line(t_env *env, t_fpoint point0, t_fpoint point1);
+void	draw_line(t_env *env, t_fpoint point0, t_fpoint point1, int color);
 void	draw_background(t_env *env);
 
 //HOOKS.C
