@@ -19,12 +19,12 @@ $(info OBJECTS = $(OBJECTS))
 all: ${NAME}
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	${CC} ${CFLAGS} -Ilibft -I./mlx_linux -c $< -o $@ -I $(INC_DIR)
+	${CC} ${CFLAGS} -Ilibft -I./mlx_linux -I$(INC_DIR) -c $< -o $@
 
-${NAME}: ${OBJECTS}
+${NAME}: ${OBJECTS} Makefile libft
 	@make -C libft
 	@make -C mlx_linux
-	${CC} ${CFLAGS} ${OBJECTS} -Llibft -lft -L/usr/lib -Lmlx_linux -lmlx_Linux -Imlx_linux -lm -lXext -lX11 -lz -o ${NAME}
+	${CC} ${CFLAGS} ${OBJECTS} -Llibft -lft -Lmlx_linux -lmlx_Linux -lm -lXext -lX11 -lz -o ${NAME}
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
@@ -41,6 +41,7 @@ clean:
 	${RM} ${OBJ_DIR}
 
 fclean: clean
+	make fclean -C libft
 	${RM} ${NAME}
 
 -include $(DEPS)

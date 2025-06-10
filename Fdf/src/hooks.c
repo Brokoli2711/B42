@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:38:31 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/08 18:49:23 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/10 15:41:51 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ void	h_management(t_env *env)
 int	key_handler(int key, t_env *env)
 {
 	if (key == 65307)
-	{
 		close_win(env);
-		printf("hola");
-	}
 	else if (key == 13 || key == 97)
 		env->translation -= TRANS_X;
 	else if (key == 1 || key == 100)
@@ -56,6 +53,7 @@ int	close_win(t_env *env)
 		mlx_destroy_display(env->mlx);
 		free(env->mlx);
 	}
+	free_final_tab(env);
 	exit (0);
 }
 

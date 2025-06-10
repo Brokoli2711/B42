@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:36:36 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/09 22:44:58 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/10 15:47:16 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@
 # define WINDOW_HEIGHT 1080
 # define MLX_ERROR 1
 # define ZOOM_FACTOR 0.6
-# define TRANS_X 4
-# define TRANS_Y 4
+# define TRANS_X 10
+# define TRANS_Y 10
 # define ALTITUDE 0.1
-# define BUFFERSIZE 2097152
 
 # define RED 0x00FF0000
 # define BLACK 0x00000000
@@ -57,6 +56,7 @@ typedef struct s_env
 	void		*img;
 	char		*addr;
 	char		*path_map;
+	t_ipoint	**final_tab;
 	int			map_w;
 	int			map_h;
 	int			x;
@@ -77,7 +77,6 @@ typedef struct s_env
 	float		alpha;
 	float		offset_x;
 	float		offset_y;
-	t_ipoint	**final_tab;
 	t_ipoint	*initial_points;
 	t_fpoint	*final_points;
 	t_delta		*delta;

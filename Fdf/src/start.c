@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:40:24 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/09 22:43:31 by elfo             ###   ########.fr       */
+/*   Updated: 2025/06/10 15:29:31 by egelma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 #include <stdio.h>
 #include <unistd.h>
 
-/*void	set_and_free_final_tab(t_env *env, char **line_tab)
+void	set_and_free_final_tab(t_env *env, char **line_tab)
 {
-	env->final_tab[env->y][env->x] = ft_atoi(line_tab[env->x]);
+	char	**s;
+
+	s = ft_split(line_tab[env->x], ',');
+	env->final_tab[env->y][env->x].z = ft_atoi(s[0]);
+	if (s[1])
+		env->final_tab[env->y][env->x].color = ft_atoi_base(s[1], 16);
+	else
+		env->final_tab[env->y][env->x].color = RED;
+	ft_free_split(s);
 	free(line_tab[env->x]);
 }
-*/
-void	parse_point(t_ipoint *point, int x, int y, char *str)
-{
-	char **split;
 
-	split =  ft_split(str, ',');
-	if(!split)
-		return ;
-	point->x = x;
-	point->y = y;
-	point->z = ft_atoi(split[0]);
-	point->color = split[1] ? ft_atoi_base(split[1], 16) : RED;
-	ft_free_split(split);
+static void	set_final_tab(t_env *env, char **line_tab)
+{
+	while (++env->x < env->map_w)
+	{
+		env->final_tab[env->y][env->x].x = env->x;
+		env->final_tab[env->y][env->x].y = env->y;
+		set_and_free_final_tab(env, line_tab);
+	}
 }
 
 void	parse_map(t_env *env, char *file)
@@ -53,11 +57,7 @@ void	parse_map(t_env *env, char *file)
 		line_tab = ft_split(line, ' ');
 		free(line);
 		env->x = -1;
-		while (++env->x < env->map_w)
-		{
-			parse_point(&env->final_tab[env->y][env->x], env->x, env->y, line_tab[env->x]);
-			free(line_tab[env->x]);
-		}
+		set_final_tab(env, line_tab);
 		env->y++;
 		free(line_tab);
 	}
@@ -80,13 +80,12 @@ int	env_init(t_env *env)
 			&env->line_length, &env->endian);
 	calculate_auto_scale_and_center(env);
 	fill_2d_points(env);
-	if(!env->centered)
+	if (!env->centered)
 		center_points(env);
 	limits(env);
 	h_management(env);
 	mlx_loop_hook(env->mlx, render, env);
 	mlx_loop(env->mlx);
-	free_final_tab(env);
 	return (0);
 }
 
