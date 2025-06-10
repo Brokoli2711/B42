@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:37:54 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/09 15:07:49 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/09 22:44:58 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@ int	error(char *message)
 {
 	ft_printf("%s\n", message);
 	exit(1);
+}
+
+void	free_final_tab(t_env *env)
+{
+	int	y;
+
+	y = 0;
+	while (y < env->map_h)
+	{
+		free(env->final_tab[y]);
+		y++;
+	}
+	free(env->final_tab);
 }
 
 int	main(int argc, char **argv)
@@ -43,19 +56,5 @@ int	main(int argc, char **argv)
 		error("2 argumens needed");
 	while (1)
 		;
-}
-
-void	free_final_tab(t_env *env)
-{
-	int	y;
-
-	y = 0;
-	while (y < env->map_h)
-	{
-		free(env->final_tab[y]);
-		free(env->color_tab[y]);
-		y++;
-	}
-	free(env->final_tab);
-	free(env->color_tab);
+	free_final_tab(&env);
 }

@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:39:41 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/09 15:19:53 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/09 22:53:52 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	fill_3d_points(t_env *env)
 		while (env->x < env->map_w)
 		{
 			env->initial_points[i] = (t_ipoint){env->x, env->y,
-				env->final_tab[env->y][env->x]};
+				env->final_tab[env->y][env->x].z,
+				env->final_tab[env->y][env->x].color};
 			i++;
 			env->x++;
 		}

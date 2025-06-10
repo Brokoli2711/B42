@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:36:36 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/09 14:26:57 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/09 22:44:58 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_ipoint
 	int	x;
 	int	y;
 	int	z;
+	int	color;
 }	t_ipoint;
 
 typedef struct s_fpoint
@@ -56,8 +57,6 @@ typedef struct s_env
 	void		*img;
 	char		*addr;
 	char		*path_map;
-	int			**final_tab;
-	int			**color_tab;
 	int			map_w;
 	int			map_h;
 	int			x;
@@ -78,6 +77,7 @@ typedef struct s_env
 	float		alpha;
 	float		offset_x;
 	float		offset_y;
+	t_ipoint	**final_tab;
 	t_ipoint	*initial_points;
 	t_fpoint	*final_points;
 	t_delta		*delta;

@@ -6,7 +6,7 @@
 /*   By: egelma-b <egelma-b@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:40:24 by egelma-b          #+#    #+#             */
-/*   Updated: 2025/06/09 15:21:56 by egelma-b         ###   ########.fr       */
+/*   Updated: 2025/06/09 22:43:31 by elfo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,17 @@
 	free(line_tab[env->x]);
 }
 */
-void	parse_point(int *z, int *color, char *str)
+void	parse_point(t_ipoint *point, int x, int y, char *str)
 {
 	char **split;
 
 	split =  ft_split(str, ',');
 	if(!split)
 		return ;
-	*z = ft_atoi(split[0]);
-	if (split[1])
-		*color = ft_atoi_base(split[1], 16);
-	else
-		*color = RED;
+	point->x = x;
+	point->y = y;
+	point->z = ft_atoi(split[0]);
+	point->color = split[1] ? ft_atoi_base(split[1], 16) : RED;
 	ft_free_split(split);
 }
 
@@ -42,14 +41,12 @@ void	parse_map(t_env *env, char *file)
 	char	**line_tab;
 
 	fd = open(file, O_RDONLY);
-	env->final_tab = malloc(env->map_h * sizeof(int *));
-	env->color_tab = malloc(env->map_h * sizeof(int *));
+	env->final_tab = malloc(env->map_h * sizeof(t_ipoint *));
 	if (!env->final_tab)
 		error("Parse malloc failed");
 	while (env->y < env->map_h)
 	{
-		env->final_tab[env->y] = malloc(env->map_w * sizeof(int));
-		env->color_tab[env->y] = malloc(env->map_w * sizeof(int));
+		env->final_tab[env->y] = malloc(env->map_w * sizeof(t_ipoint));
 		if (!env->final_tab[env->y])
 			error("Malloc failed");
 		line = get_next_line(fd);
@@ -57,9 +54,12 @@ void	parse_map(t_env *env, char *file)
 		free(line);
 		env->x = -1;
 		while (++env->x < env->map_w)
-			parse_point(&env->final_tab[env->y][env->x], &env->color_tab[env->y][env->x], line_tab[env->x]);
+		{
+			parse_point(&env->final_tab[env->y][env->x], env->x, env->y, line_tab[env->x]);
+			free(line_tab[env->x]);
+		}
 		env->y++;
-		ft_free_split(line_tab);
+		free(line_tab);
 	}
 	close(fd);
 }
